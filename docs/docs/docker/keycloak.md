@@ -42,4 +42,4 @@ networks:
     bridge:
 ```
 
-[Help run the script](/docker-compose/#run-docker-compose)
+[Help run the script](/docker/docker-compose/#run-docker-compose)

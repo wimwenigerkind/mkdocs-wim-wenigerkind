@@ -1,5 +1,13 @@
 # Changelog
 
+## 3.0.1
+
+### Changes
+
+### Fixes
+
+- Fixed broken link in the Keycloak Docker Compose documentation
+
 ## 3.0.0
 
 ### Changes
