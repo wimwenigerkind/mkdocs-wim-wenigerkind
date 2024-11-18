@@ -37,6 +37,7 @@ nav:
     - Home: https://wimwenigerkind.com
     - Docker:
           - Docker: docker/docker.md
+          - Docker Compose:  docker/docker-compose.md
           - Docker Compose Scripts:
               - Portainer: docker/portainer.md
               - Wireguard + Wireguard Ui: docker/wireguard-and-ui.md
