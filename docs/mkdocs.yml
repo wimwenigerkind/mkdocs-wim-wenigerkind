@@ -37,11 +37,12 @@ nav:
     - Home: https://wimwenigerkind.com
     - Docker:
           - Docker: docker/docker.md
-          - Portainer: docker/portainer.md
-          - Wireguard + Wireguard Ui: docker/wireguard-and-ui.md
-          - Uptime Kuma: docker/uptime-kuma.md
-          - Guacamole: docker/guacamole.md
-          - Homepage: docker/homepage.md
+          - Docker Compose Scripts:
+              - Portainer: docker/portainer.md
+              - Wireguard + Wireguard Ui: docker/wireguard-and-ui.md
+              - Uptime Kuma: docker/uptime-kuma.md
+              - Guacamole: docker/guacamole.md
+              - Homepage: docker/homepage.md
     - Proxmox: proxmox.md
     - apt:
           - OpenSSH-Server: openssh-server.md
