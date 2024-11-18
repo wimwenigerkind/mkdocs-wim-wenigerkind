@@ -5,6 +5,7 @@
 ### Changes
 - Added new documentation for my Docker Hub
 - Added new documentation for my "Symfony 7 Pipeline" Docker Hub image
+- Added new documentation for my "Minecraft Server" Docker Hub image
 
 ### Fixes
 

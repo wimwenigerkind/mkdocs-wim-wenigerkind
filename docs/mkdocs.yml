@@ -54,4 +54,5 @@ nav:
     - Docker Hub Docs:
           - Docker Hub: docker-hub/docker-hub.md
           - Symfony 7 Pipeline: docker-hub/symfony-7-pipeline.md
+          - Minecraft Server: docker-hub/minecraft.md
     - Changelog: changelog.md
