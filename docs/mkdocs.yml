@@ -44,10 +44,10 @@ nav:
               - Uptime Kuma: docker/uptime-kuma.md
               - Guacamole: docker/guacamole.md
               - Homepage: docker/homepage.md
+              - Keycloak: docker/keycloak.md
     - Proxmox: proxmox.md
     - apt:
           - OpenSSH-Server: openssh-server.md
-    - Keycloak: keycloak.md
     - MkDocs: mkdocs.md
     - piHole: pihole.md
     - Git: git.md

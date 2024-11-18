@@ -1,5 +1,14 @@
 # Changelog
 
+## 3.0.0
+
+### Changes
+- Added new documentation for how to run Docker Compose scripts
+- Added new documentation for Keycloak Docker Compose
+- Removed old Keycloak documentation
+
+### Fixes
+
 ## 2.0.0
 
 ### Changes
