@@ -21,3 +21,9 @@
 ### Install Latest version of Docker
 
     sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+## Run a Docker container
+WIP
+
+## Create own Docker Image and Push it to Docker Hub
+WiP
