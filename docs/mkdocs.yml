@@ -49,4 +49,3 @@ nav:
     - MkDocs: mkdocs.md
     - piHole: pihole.md
     - Git: git.md
-    - Test: test/mktest.md
