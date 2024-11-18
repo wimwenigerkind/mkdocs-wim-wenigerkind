@@ -14,5 +14,5 @@ pipelines:
                 - 'linux'
                 - 'workspace'
             script:
-                - echo "Your build and test goes here..."
-                - ping 10.0.1.1
+                - apt-get update && apt-get install -y sshpass
+                - sshpass -p "${SSH_PASSWORD}" rsync avzc --update -e "ssh -o StrictHostKeyChecking=no" docs/ ${SSH_USER}@${SSH_SERVER}:${SSH_DIRECTORY}
