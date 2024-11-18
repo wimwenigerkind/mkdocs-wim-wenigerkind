@@ -51,4 +51,7 @@ nav:
     - MkDocs: mkdocs.md
     - piHole: pihole.md
     - Git: git.md
+    - Docker Hub Docs:
+          - Docker Hub: docker-hub/docker-hub.md
+          - Symfony 7 Pipeline: docker-hub/symfony-7-pipeline.md
     - Changelog: changelog.md

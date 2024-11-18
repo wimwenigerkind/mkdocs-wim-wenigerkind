@@ -1,5 +1,13 @@
 # Changelog
 
+## 4.0.0
+
+### Changes
+- Added new documentation for my Docker Hub
+- Added new documentation for my "Symfony 7 Pipeline" Docker Hub image
+
+### Fixes
+
 ## 3.0.1
 
 ### Changes
