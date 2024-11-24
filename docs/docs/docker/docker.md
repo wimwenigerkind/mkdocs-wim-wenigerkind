@@ -1,7 +1,5 @@
 [Docker](https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository) Installation on Linux
 
-# EN
-
 ## Install Docker
 
 ### Add Docker's official GPG key
@@ -42,8 +40,6 @@ This command will pull the Docker image if not already present locally, start a 
 
 ## Create your own Docker Image and Push it to Docker Hub
 WIP
-
-# DE
 
 ## What about Docker
 

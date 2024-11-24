@@ -1,11 +1,12 @@
-	mkdir /homepage
+    mkdir /homepage
 	cd /homepage
 
 ## docker-compose.yaml
 
-	nano docker-compose.yaml
+    nano docker-compose.yaml
 
-```
+
+```yaml
 version: "3.3"
 services:
   homepage:

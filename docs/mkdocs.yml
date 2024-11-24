@@ -1,4 +1,5 @@
 site_name: Docs
+site_url: http://0.0.0.0:8000
 theme:
     name: material
     logo: https://images.wimwenigerkind.com/wimwenigerkind-transparent-icon.png
@@ -8,6 +9,9 @@ theme:
         - content.code.copy
         - content.code.select
         - content.code.annotate
+        - navigation.tabs
+        - search.highlight
+        - navigation.instant
     palette:
         - media: "(prefers-color-scheme)"
           toggle:
@@ -23,6 +27,12 @@ theme:
           toggle:
               icon: material/brightness-4
               name: Switch to system preference
+    icon:
+        repo: fontawesome/brands/bitbucket
+repo_url: https://bitbucket.org/wimdevgroup/mkdocs-wim-wenigerkind/src/main/
+repo_name: wimdevgroup/mkdocs-wim-wenigerkind
+extra_css:
+    - assets/stylesheets/extra.css
 extra:
     social:
         - icon: fontawesome/brands/mastodon
@@ -32,26 +42,43 @@ markdown_extensions:
     - pymdownx.emoji:
           emoji_index: !!python/name:material.extensions.emoji.twemoji
           emoji_generator: !!python/name:material.extensions.emoji.to_svg
-copyright: Copyright &copy; 2024 Wim Wenigerkind
+    - pymdownx.highlight:
+          anchor_linenums: true
+          line_spans: __span
+          pygments_lang_class: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences
+copyright: Copyright &copy; 2024 WimDevGroup and others
 nav:
-    - Home: https://wimwenigerkind.com
+    - Home: index.md
     - Docker:
           - Docker: docker/docker.md
           - Docker Compose:  docker/docker-compose.md
-          - Docker Compose Scripts:
+          - Docker Containers:
               - Portainer: docker/portainer.md
               - Wireguard + Wireguard Ui: docker/wireguard-and-ui.md
               - Uptime Kuma: docker/uptime-kuma.md
               - Guacamole: docker/guacamole.md
               - Homepage: docker/homepage.md
               - Keycloak: docker/keycloak.md
-    - Proxmox: proxmox.md
-    - apt:
-          - OpenSSH-Server: openssh-server.md
-    - MkDocs: mkdocs.md
-    - piHole: pihole.md
-    - Git: git.md
-    - Docker Hub Docs:
+              - Whisper: docker/faster-whisper.md
+              - Piper: docker/piper.md
+              - Mailpit: docker/mailpit.md
+              - MySQL: docker/mysql.md
+              - Stirling PDF: docker/stirling-pdf.md
+              - Gitea: docker/gitea.md
+              - Apache2: docker/apache2.md
+              - Nextcloud: docker/nextcloud.md
+              - Wordpress: docker/wordpress.md
+    - Other Documentations:
+          - Proxmox: proxmox.md
+          - apt:
+              - OpenSSH-Server: openssh-server.md
+          - MkDocs: mkdocs.md
+          - piHole: pihole.md
+          - Git: git.md
+    - Docker Hub:
           - Docker Hub: docker-hub/docker-hub.md
           - Symfony 7 Pipeline: docker-hub/symfony-7-pipeline.md
           - Minecraft Server: docker-hub/minecraft.md
