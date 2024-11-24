@@ -1,5 +1,11 @@
 # Changelog
 
+## 4.1.0
+
+### Changes
+- Added new text to the "Docker" documentation
+- Updated existing text in the "Docker" documentation
+
 ## 4.0.0
 
 ### Changes

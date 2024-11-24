@@ -136,7 +136,7 @@ docker network ls
 
 ##### Bridge Netzwerk
 
-Standard Netzwerke: `Bridge`
+Standard Netzwerke: `bridge`
 
 Das Bridge-Netzwerk ist das Standardnetzwerk, das Docker verwendet, wenn kein anderes Netzwerk explizit angegeben wird. Es ist eine virtuelle Netzwerkschnittstelle, die es Containern ermöglicht, miteinander zu kommunizieren, während sie von der Außenwelt isoliert bleiben.
 
@@ -157,7 +157,7 @@ Mit dem Befehl
 ```bash
 docker network inspect bridge
 ```
-kann man sich die Informationen des Bridge Netzwerks anzeigen lassen.
+kann man sich die Informationen zum `bridge` Netzwerk anzeigen lassen.
 
 ```json
 [
@@ -246,6 +246,48 @@ Nachteile:
 - Keine Isolation auf Netzwerkebene.
 - Konfilkte möglich, wenn ein Container und der Host denselben Port verwenden.
 
+Mit dem Befehl
+```bash
+docker insepct host
+```
+kann man sich die Informationen zu dem `host` Netzwerk anzeigen lassen.
+
+```json
+[
+    {
+        "Name": "host",
+        "Id": "58c3a04140448fec2277fd593a9912b33f073291b6f063f47d9c107a8394ea5a",
+        "Created": "2024-08-01T11:20:36.553257125Z",
+        "Scope": "local",
+        "Driver": "host",
+        "EnableIPv6": false,
+        "IPAM": {
+            "Driver": "default",
+            "Options": null,
+            "Config": null
+        },
+        "Internal": false,
+        "Attachable": false,
+        "Ingress": false,
+        "ConfigFrom": {
+            "Network": ""
+        },
+        "ConfigOnly": false,
+        "Containers": {
+            "0301d49daa889b28000bbc8e1d49599f56fdf2f09ea417e9e4ab36ba5e87b68c": {
+                "Name": "cloudflared",
+                "EndpointID": "38e2fff78942b987ea8f5ec50e82be4a27f9522d7302a74ca1452744ec0ef500",
+                "MacAddress": "",
+                "IPv4Address": "",
+                "IPv6Address": ""
+            }
+        },
+        "Options": {},
+        "Labels": {}
+    }
+]
+```
+
 ##### None Netzwerk
 
 Das None-Netzwerk deaktiviert die Netzwerkkonnektivität des Containers vollständig. Der Container hat keinen Zugriff auf andere Container, den Host oder das Internet.
@@ -261,6 +303,40 @@ Vorteile:
 
 Nachteile:
 - Kein Zugriff auf andere Dienste oder das Internet.
+
+Mit dem Befehl
+```bash
+docker inspect none
+```
+kann man sich die Informationen zu dem `none` Netzwerk anzeigen lassen.
+
+```json
+[
+  {
+    "Name": "none",
+    "Id": "e51e946b1190696a71652a49ade22ee15a0dae768e3f8e0b4e9c039f22625435",
+    "Created": "2024-08-01T11:20:36.547084166Z",
+    "Scope": "local",
+    "Driver": "null",
+    "EnableIPv6": false,
+    "IPAM": {
+      "Driver": "default",
+      "Options": null,
+      "Config": null
+    },
+    "Internal": false,
+    "Attachable": false,
+    "Ingress": false,
+    "ConfigFrom": {
+      "Network": ""
+    },
+    "ConfigOnly": false,
+    "Containers": {},
+    "Options": {},
+    "Labels": {}
+  }
+]
+```
 
 ##### Vergleiche der Standard Netzwerke
 
