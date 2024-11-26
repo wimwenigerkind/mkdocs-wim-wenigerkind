@@ -2,6 +2,16 @@
 
 ## Documentation for WimDevGroup
 
+### 3.1.0 <small>November 25, 2024</small> { id="3.0.0" }
+
+- Added "remove secrets from git history" to git documentation.
+
+### 3.0.0 <small>November 25, 2024</small> { id="3.0.0" }
+
+- Added new rubric for "Projects"
+- Added new rubric for "Bitbucket Pipelines"
+- Added new documentation for "Bitbucket Pipelines"
+
 ### 2.0.0 <small>November 24, 2024</small> { id="2.0.0" }
 
 - Structure changes in the documentation.
@@ -34,7 +44,7 @@
 - Added new rubric for Docker Compose Scripts
 - Added changelog documentation file
 
-### 1.0.0 <small>Apirl 24, 2024</small> { id="1.0.0" }
+### 1.0.0 <small>April 24, 2024</small> { id="1.0.0" }
 
 - Initial release of the documentation
 - Added first Documentation files
@@ -42,7 +52,7 @@
 ## Changelog Versioning
 
 ### Major Version
-- Structure changes in the documentation.
+- Structure changes to the documentation.
 
 ### Minor Version
 - Updates to the documentation.

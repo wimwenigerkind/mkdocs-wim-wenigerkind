@@ -52,6 +52,9 @@ markdown_extensions:
 copyright: Copyright &copy; 2024 WimDevGroup and others
 nav:
     - Home: index.md
+    - Projects:
+          - Projects: projects/projects.md
+          - GamePanel: projects/gamepanel.md
     - Docker:
           - Docker: docker/docker.md
           - Docker Compose:  docker/docker-compose.md
@@ -78,6 +81,10 @@ nav:
           - MkDocs: mkdocs.md
           - piHole: pihole.md
           - Git: git.md
+    - Bitbucket Pipelines:
+          - Bitbucket Pipelines: bitbucket-pipelines/bitbucket-pipelines.md
+          - Multi Arch Docker Image Pipeline: bitbucket-pipelines/docker-multi-arch-pipeline.md
+          - MkDocs Pipeline: bitbucket-pipelines/mkdocs-pipeline.md
     - Docker Hub:
           - Docker Hub: docker-hub/docker-hub.md
           - Symfony 7 Pipeline: docker-hub/symfony-7-pipeline.md

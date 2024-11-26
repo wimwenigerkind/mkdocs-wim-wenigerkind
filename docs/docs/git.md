@@ -60,3 +60,27 @@
 20. **`git config`**
     Konfiguriert Benutzereinstellungen für Git, z.B. Name und E-Mail-Adresse.
 
+## Secrets aus GitHistory entfernen
+
+Wenn Sie versehentlich ein Geheimnis, wie z.B. ein Passwort oder einen API-Schlüssel, in einem Git-Repository committet haben, können Sie es mit den folgenden Schritten aus der Git-Historie entfernen:
+
+### Git Filter-Repo Tool Installieren
+
+Secrets aus der Git History entfernen kann man mit dem git-filter-repo tool:
+
+Installieren Sie das `git-filter-repo`-Tool:
+
+```bash title="MacOS mit Brew"
+brew install git-filter-repo
+```
+
+Dadurch wird das Tool und die benötigten Abhängigkeiten installiert.
+
+### Secret entfernen
+```bash
+git filter-repo --replace-text <(echo '<DEIN_SECRET>') --force
+```
+
+Ersetzen Sie `<DEIN_SECRET>` durch das secret das Sie entfernen möchten.
+
+Danach müssen die Änderungen noch force gepusht werden.
