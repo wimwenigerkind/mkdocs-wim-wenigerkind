@@ -2,10 +2,6 @@
 
 ## Documentation for WimDevGroup
 
-### 4.1.0 <small>Dezember 02, 2024</small> { id="4.1.0" }
-
-- Structure change added "Internal" section to the documentation.
-
 ### 3.1.0 <small>November 25, 2024</small> { id="3.1.0" }
 
 - Added "remove secrets from git history" to git documentation.
