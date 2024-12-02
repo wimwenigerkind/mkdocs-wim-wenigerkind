@@ -90,7 +90,7 @@ nav:
           - Symfony 7 Pipeline: docker-hub/symfony-7-pipeline.md
           - Minecraft Server: docker-hub/minecraft.md
     - Internal:
-          - Internal: internal/internal.md
+          - Internal: internal/index.md
           - Infrastructure: internal/infrastructure.md
           - Ausbildungsnachweis: internal/ausbildungsnachweis.md
     - Changelog: changelog.md
