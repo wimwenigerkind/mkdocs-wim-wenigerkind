@@ -2,6 +2,10 @@
 
 ## Documentation for WimDevGroup
 
+### 3.2.0 <small>Dezember 04, 2024</small> { id="3.2.0" }
+
+- Added project documentation for "Docker Compose Helper Script".
+
 ### 3.1.0 <small>November 25, 2024</small> { id="3.1.0" }
 
 - Added "remove secrets from git history" to git documentation.

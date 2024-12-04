@@ -55,6 +55,7 @@ nav:
     - Projects:
           - Projects: projects/projects.md
           - GamePanel: projects/gamepanel.md
+          - Docker Compose Helper: projects/docker-compose-helper.md
     - Docker:
           - Docker: docker/docker.md
           - Docker Compose:  docker/docker-compose.md
