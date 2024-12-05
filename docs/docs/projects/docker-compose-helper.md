@@ -2,6 +2,7 @@
 Supported Docker Compose Scripts
 
 - mysql
+- keycloak
 
 More Coming Soon
 
