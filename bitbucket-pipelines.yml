@@ -10,7 +10,7 @@ pipelines:
                         - 'linux'
                         - 'workspace'
                     script:
-                        - apt-get update && apt-get install -y sshpass rsync openssh-client
+                        - apt-get update && apt-get install -y ssh-askpass sshpass rsync openssh-client
                         - sshpass -p "${SSH_PASSWORD}" rsync -avzc --update -e "ssh -o StrictHostKeyChecking=no" docs/ ${SSH_USER}@${SSH_SERVER}:${SSH_DIRECTORY}
     branches:
         main:
