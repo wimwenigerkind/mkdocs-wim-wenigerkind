@@ -4,6 +4,7 @@ theme:
     name: material
     logo: https://images.wimwenigerkind.com/wimwenigerkind-transparent-icon.png
     favicon: https://images.wimwenigerkind.com/wimwenigerkind-transparent-icon.png
+    custom_dir: docs/overrides
     features:
         - navigation.footer
         - content.code.copy
