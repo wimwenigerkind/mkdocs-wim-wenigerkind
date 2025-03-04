@@ -1,8 +1,8 @@
 image: atlassian/default-image:3
 
 pipelines:
-    tags:
-        release/*:
+    branches:
+        main:
             -   step:
                     name: 'Build and Test'
                     runs-on:
@@ -12,11 +12,3 @@ pipelines:
                     script:
                         - apt-get update && apt-get install -y ssh-askpass sshpass rsync openssh-client
                         - sshpass -p "${SSH_PASSWORD}" rsync -avzc --update -e "ssh -o StrictHostKeyChecking=no" docs/ ${SSH_USER}@${SSH_SERVER}:${SSH_DIRECTORY}
-    branches:
-        main:
-            - step:
-                  name: Auto tag release
-                  script:
-                      - apt-get update && apt-get install -y --no-install-recommends git
-                      - git tag -a "release/${BITBUCKET_BUILD_NUMBER}" -m "release/${BITBUCKET_BUILD_NUMBER} on ${BITBUCKET_COMMIT}" "${BITBUCKET_COMMIT}"
-                      - git push origin "release/${BITBUCKET_BUILD_NUMBER}"
