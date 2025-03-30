@@ -2,6 +2,10 @@
 
 ## Documentation for WimDevGroup
 
+### 3.2.1 <small>March 30, 2025</small> { id="3.2.1" }
+
+- Fixed a typo in the index page title.
+
 ### 3.2.0 <small>Dezember 04, 2024</small> { id="3.2.0" }
 
 - Added project documentation for "Docker Compose Helper Script".
