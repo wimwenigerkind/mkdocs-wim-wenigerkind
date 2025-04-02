@@ -6,7 +6,7 @@
 
 - Fixed a typo in the index page title.
 
-### 3.2.0 <small>Dezember 04, 2024</small> { id="3.2.0" }
+### 3.2.0 <small>December 04, 2024</small> { id="3.2.0" }
 
 - Added project documentation for "Docker Compose Helper Script".
 
