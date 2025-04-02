@@ -2,6 +2,10 @@
 
 ## Documentation for WimDevGroup
 
+### 3.3.0 <small>April 2, 2025</small> { id="3.3.0" }
+
+- Added project documentation for "Satisfactory Server" to docker hub section.
+
 ### 3.2.1 <small>March 30, 2025</small> { id="3.2.1" }
 
 - Fixed a typo in the index page title.
