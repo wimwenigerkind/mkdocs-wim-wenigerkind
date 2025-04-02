@@ -1,14 +1,20 @@
 image: atlassian/default-image:3
 
 pipelines:
-    branches:
-        main:
-            -   step:
-                    name: 'Build and Test'
-                    runs-on:
-                        - 'self.hosted'
-                        - 'linux'
-                        - 'workspace'
-                    script:
-                        - apt-get update && apt-get install -y ssh-askpass sshpass rsync openssh-client
-                        - sshpass -p "${SSH_PASSWORD}" rsync -avzc --update -e "ssh -o StrictHostKeyChecking=no" docs/ ${SSH_USER}@${SSH_SERVER}:${SSH_DIRECTORY}
+  default:
+    main:
+      - step:
+          name: Build and Test
+          runs-on:
+            - 'self.hosted'
+            - 'linux'
+            - 'workspace'
+          script:
+            - apt-get update && apt-get install -y ssh-askpass sshpass rsync openssh-client
+            - sshpass -p "${SSH_PASSWORD}" rsync -avzc --update -e "ssh -o StrictHostKeyChecking=no" docs/ ${SSH_USER}@${SSH_SERVER}:${SSH_DIRECTORY}
+      - step:
+          name: Mirror to Github
+          script:
+            - git fetch origin --unshallow
+            - git remote add github https://x-token-auth:${GITHUB_ACCESS_TOKEN}@github.com/wimwenigerkind/${BITBUCKET_REPO_SLUG}.git
+            - git push --force github ${BITBUCKET_BRANCH}
