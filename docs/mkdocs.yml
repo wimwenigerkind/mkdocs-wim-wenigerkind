@@ -30,8 +30,8 @@ theme:
               name: Switch to system preference
     icon:
         repo: fontawesome/brands/bitbucket
-repo_url: https://bitbucket.org/wimdevgroup/mkdocs-wim-wenigerkind/src/main/
-repo_name: wimdevgroup/mkdocs-wim-wenigerkind
+repo_url: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind
+repo_name: wimwenigerkind/mkdocs-wim-wenigerkind
 extra_css:
     - assets/stylesheets/extra.css
 extra:
