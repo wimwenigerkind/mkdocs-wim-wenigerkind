@@ -29,7 +29,7 @@ theme:
               icon: material/brightness-4
               name: Switch to system preference
     icon:
-        repo: fontawesome/brands/bitbucket
+        repo: fontawesome/brands/github
 repo_url: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind
 repo_name: wimwenigerkind/mkdocs-wim-wenigerkind
 extra_css:
