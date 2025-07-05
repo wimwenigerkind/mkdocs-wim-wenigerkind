@@ -92,4 +92,12 @@ nav:
           - Symfony 7 Pipeline: docker-hub/symfony-7-pipeline.md
           - Minecraft Server: docker-hub/minecraft.md
           - Satisfactory Server: docker-hub/satisfactory-server.md
-    - Changelog: changelog.md
+    - Homebrew:
+          - Homebrew: homebrew/index.md
+          - Homebrew Formula: homebrew/formula.md
+          - wswcli:
+              - About: homebrew/wswcli/index.md
+              - Patch Vendor: homebrew/wswcli/patchvendor.md
+    - Changelog:
+        - EN: changelog/en.md
+        - DE: changelog/de.md
