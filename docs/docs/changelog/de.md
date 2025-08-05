@@ -7,6 +7,13 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 
 ## [Unveröffentlicht]
 
+## [4.0.1] - 2025-08-05
+
+### Behoben
+- Tippfehler im MySQL Docker Compose Beispiel korrigiert
+- Falsche Portzuordnung im MySQL Docker Compose Beispiel behoben
+
+
 ## [4.0.0] - 2025-07-05
 
 ### Hinzugefügt
