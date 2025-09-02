@@ -7,6 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Add edit and view actions to mkdocs configuration
+
 ## [6.0.0] - 2025-09-02
 
 ### Added

@@ -7,6 +7,9 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 
 ## [Unveröffentlicht]
 
+### Added
+- Bearbeiten und Ansicht-Aktionen zur MkDocs-Konfiguration hinzugefügt
+
 ## [6.0.0] - 2025-09-02
 
 ### Added
