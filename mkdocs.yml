@@ -56,6 +56,11 @@ plugins:
         - Tutorials
         - Projects
         - Test
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - git-committers:
+      repository: wimwenigerkind/mkdocs-wim-wenigerkind
+      branch: main
 markdown_extensions:
   - attr_list
   - pymdownx.emoji:
