@@ -1,105 +1,123 @@
 site_name: Docs
 site_url: https://docs.wimwenigerkind.com/
 theme:
-    name: material
-    logo: https://images.wimwenigerkind.com/wimwenigerkind-transparent-icon.png
-    favicon: https://images.wimwenigerkind.com/wimwenigerkind-transparent-icon.png
-    custom_dir: docs/overrides
-    features:
-        - navigation.footer
-        - content.code.copy
-        - content.code.select
-        - content.code.annotate
-        - navigation.tabs
-        - search.highlight
-        - navigation.instant
-    palette:
-        - media: "(prefers-color-scheme)"
-          toggle:
-              icon: material/brightness-auto
-              name: Switch to light mode
-        - media: "(prefers-color-scheme: light)"
-          scheme: default
-          toggle:
-              icon: material/brightness-7
-              name: Switch to dark mode
-        - media: "(prefers-color-scheme: dark)"
-          scheme: slate
-          toggle:
-              icon: material/brightness-4
-              name: Switch to system preference
-    icon:
-        repo: fontawesome/brands/github
+  name: material
+  logo: https://images.wimwenigerkind.com/wimwenigerkind-transparent-icon.png
+  favicon: https://images.wimwenigerkind.com/wimwenigerkind-transparent-icon.png
+  custom_dir: docs/overrides
+  features:
+    - navigation.footer
+    - content.code.copy
+    - content.code.select
+    - content.code.annotate
+    - navigation.tabs
+    - search.highlight
+    - navigation.instant
+  palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: Switch to system preference
+  icon:
+    repo: fontawesome/brands/github
 repo_url: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind
 repo_name: wimwenigerkind/mkdocs-wim-wenigerkind
 extra_css:
-    - assets/stylesheets/extra.css
+  - assets/stylesheets/extra.css
 extra:
-    version:
-        provider: mike
-    social:
-        - icon: fontawesome/brands/mastodon
-          link: https://wimwenigerkind.com
+  version:
+    provider: mike
+  social:
+    - icon: fontawesome/brands/mastodon
+      link: https://wimwenigerkind.com
+plugins:
+  - blog:
+      blog_dir: blog
+      authors_file: blog/.authors.yml
+      blog_toc: true
+      authors_profiles: true
+      post_date_format: full
+      post_url_format: "{date}/{slug}"
+      archive_date_format: "%Y"
+      categories_allowed:
+        - MCP
+        - Docker
+        - DevOps
+        - Tutorials
+        - Projects
+        - Test
 markdown_extensions:
-    - attr_list
-    - pymdownx.emoji:
-          emoji_index: !!python/name:material.extensions.emoji.twemoji
-          emoji_generator: !!python/name:material.extensions.emoji.to_svg
-    - pymdownx.highlight:
-          anchor_linenums: true
-          line_spans: __span
-          pygments_lang_class: true
-    - pymdownx.inlinehilite
-    - pymdownx.snippets
-    - pymdownx.superfences
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
 copyright: Copyright &copy; 2025 WimDevGroup and others
 nav:
-    - Home: index.md
-    - Projects:
-          - Projects: projects/projects.md
-          - GamePanel: projects/gamepanel.md
-          - Docker Compose Helper: projects/docker-compose-helper.md
-    - Docker:
-          - Docker: docker/docker.md
-          - Docker Compose:  docker/docker-compose.md
-          - Docker Containers:
-              - Portainer: docker/portainer.md
-              - Wireguard + Wireguard Ui: docker/wireguard-and-ui.md
-              - Uptime Kuma: docker/uptime-kuma.md
-              - Guacamole: docker/guacamole.md
-              - Homepage: docker/homepage.md
-              - Keycloak: docker/keycloak.md
-              - Whisper: docker/faster-whisper.md
-              - Piper: docker/piper.md
-              - Mailpit: docker/mailpit.md
-              - MySQL: docker/mysql.md
-              - Stirling PDF: docker/stirling-pdf.md
-              - Gitea: docker/gitea.md
-              - Apache2: docker/apache2.md
-              - Nextcloud: docker/nextcloud.md
-              - Wordpress: docker/wordpress.md
-    - Other Documentations:
-          - Proxmox: proxmox.md
-          - apt:
-              - OpenSSH-Server: openssh-server.md
-          - MkDocs: mkdocs.md
-          - piHole: pihole.md
-          - Git: git.md
-    - Bitbucket Pipelines:
-          - Bitbucket Pipelines: bitbucket-pipelines/bitbucket-pipelines.md
-          - Multi Arch Docker Image Pipeline: bitbucket-pipelines/docker-multi-arch-pipeline.md
-          - MkDocs Pipeline: bitbucket-pipelines/mkdocs-pipeline.md
-    - Docker Hub:
-          - Docker Hub: docker-hub/docker-hub.md
-          - Symfony 7 Pipeline: docker-hub/symfony-7-pipeline.md
-          - Minecraft Server: docker-hub/minecraft.md
-          - Satisfactory Server: docker-hub/satisfactory-server.md
-    - Homebrew:
-          - Homebrew: homebrew/index.md
-          - Homebrew Formula: homebrew/formula.md
-          - wswcli:
-              - About: homebrew/wswcli/index.md
-              - Patch Vendor: homebrew/wswcli/patchvendor.md
-    - Changelog:
-        - EN: changelog/en.md
-        - DE: changelog/de.md
+  - Home: index.md
+  - Projects:
+      - Projects: projects/projects.md
+      - GamePanel: projects/gamepanel.md
+      - Docker Compose Helper: projects/docker-compose-helper.md
+  - Docker:
+      - Docker: docker/docker.md
+      - Docker Compose: docker/docker-compose.md
+      - Docker Containers:
+          - Portainer: docker/portainer.md
+          - Wireguard + Wireguard Ui: docker/wireguard-and-ui.md
+          - Uptime Kuma: docker/uptime-kuma.md
+          - Guacamole: docker/guacamole.md
+          - Homepage: docker/homepage.md
+          - Keycloak: docker/keycloak.md
+          - Whisper: docker/faster-whisper.md
+          - Piper: docker/piper.md
+          - Mailpit: docker/mailpit.md
+          - MySQL: docker/mysql.md
+          - Stirling PDF: docker/stirling-pdf.md
+          - Gitea: docker/gitea.md
+          - Apache2: docker/apache2.md
+          - Nextcloud: docker/nextcloud.md
+          - Wordpress: docker/wordpress.md
+  - Other Documentations:
+      - Proxmox: proxmox.md
+      - apt:
+          - OpenSSH-Server: openssh-server.md
+      - MkDocs: mkdocs.md
+      - piHole: pihole.md
+      - Git: git.md
+  - Bitbucket Pipelines:
+      - Bitbucket Pipelines: bitbucket-pipelines/bitbucket-pipelines.md
+      - Multi Arch Docker Image Pipeline: bitbucket-pipelines/docker-multi-arch-pipeline.md
+      - MkDocs Pipeline: bitbucket-pipelines/mkdocs-pipeline.md
+  - Docker Hub:
+      - Docker Hub: docker-hub/docker-hub.md
+      - Symfony 7 Pipeline: docker-hub/symfony-7-pipeline.md
+      - Minecraft Server: docker-hub/minecraft.md
+      - Satisfactory Server: docker-hub/satisfactory-server.md
+  - Homebrew:
+      - Homebrew: homebrew/index.md
+      - Homebrew Formula: homebrew/formula.md
+      - wswcli:
+          - About: homebrew/wswcli/index.md
+          - Patch Vendor: homebrew/wswcli/patchvendor.md
+  - Blog:
+      - Blog: blog/index.md
+  - Changelog:
+      - EN: changelog/en.md
+      - DE: changelog/de.md
