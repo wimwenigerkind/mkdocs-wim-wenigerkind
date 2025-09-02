@@ -1,5 +1,5 @@
 site_name: Docs
-site_url: http://0.0.0.0:8000
+site_url: https://docs.wimwenigerkind.com/
 theme:
     name: material
     logo: https://images.wimwenigerkind.com/wimwenigerkind-transparent-icon.png
@@ -35,6 +35,8 @@ repo_name: wimwenigerkind/mkdocs-wim-wenigerkind
 extra_css:
     - assets/stylesheets/extra.css
 extra:
+    version:
+        provider: mike
     social:
         - icon: fontawesome/brands/mastodon
           link: https://wimwenigerkind.com
