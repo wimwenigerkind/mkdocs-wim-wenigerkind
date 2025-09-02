@@ -7,6 +7,11 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 
 ## [Unveröffentlicht]
 
+## [6.0.0] - 2025-09-02
+
+### Added
+- Blog-Plugin und Sektion zur Dokumentation hinzugefügt
+
 ## [5.0.0] - 2025-09-02
 
 ### Added
