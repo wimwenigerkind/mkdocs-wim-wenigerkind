@@ -7,6 +7,11 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 
 ## [Unveröffentlicht]
 
+## [5.0.0] - 2025-09-02
+
+### Added
+- Dokumentation zu GitHub Pages migriert
+
 ## [4.0.1] - 2025-08-05
 
 ### Behoben
