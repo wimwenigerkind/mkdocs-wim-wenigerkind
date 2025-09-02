@@ -58,6 +58,5 @@ jobs:
     
     - name: Deploy version as latest
       run: |
-        cd docs
         mike deploy --push --update-aliases $VERSION latest
         mike set-default --push latest

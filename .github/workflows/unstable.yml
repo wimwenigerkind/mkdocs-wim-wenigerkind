@@ -40,5 +40,4 @@ jobs:
     
     - name: Deploy unstable version
       run: |
-        cd docs
         mike deploy --push unstable
