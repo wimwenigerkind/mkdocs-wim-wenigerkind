@@ -61,5 +61,5 @@ jobs:
     
     - name: Deploy version as latest
       run: |
-        devenv shell --command "mike deploy --push --update-aliases $VERSION latest"
-        devenv shell --command "mike set-default --push latest"
+        devenv shell mike deploy --push --update-aliases $VERSION latest
+        devenv shell mike set-default --push latest

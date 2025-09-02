@@ -43,4 +43,4 @@ jobs:
     
     - name: Deploy unstable version
       run: |
-        devenv shell --command "mike deploy --push unstable"
+        devenv shell mike deploy --push unstable
