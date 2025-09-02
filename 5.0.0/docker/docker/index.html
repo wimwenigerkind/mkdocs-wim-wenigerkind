@@ -1,0 +1,3304 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+        <link rel="canonical" href="https://docs.wimwenigerkind.com/5.0.0/docker/docker/">
+      
+      
+        <link rel="prev" href="../../projects/docker-compose-helper/">
+      
+      
+        <link rel="next" href="../docker-compose/">
+      
+      
+      <link rel="icon" href="https://images.wimwenigerkind.com/wimwenigerkind-transparent-icon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.18">
+    
+    
+      
+        <title>Docker - Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+<!-- Umami -->
+<script defer src="https://umami.wimwenigerkind.com/script.js" data-website-id="fe447986-d980-4270-b93a-5dadefa68572"></script>
+<!-- End Umami -->
+<!-- Consent -->
+<!-- <script id="cookie-consent-data" data-url="https://consent.wimwenigerkind.com/check/1" src="https://consent.wimwenigerkind.com/cmp/index.js"></script> -->
+<!-- End Consent -->
+<!-- Matomo -->
+<script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+        var u="//matomo.wimwenigerkind.com/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '2']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+</script>
+<!-- End Matomo Code -->
+
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#install-docker" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      <div data-md-color-scheme="default" data-md-component="outdated" hidden>
+        
+      </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Docs" class="md-header__button md-logo" aria-label="Docs" data-md-component="logo">
+      
+  <img src="https://images.wimwenigerkind.com/wimwenigerkind-transparent-icon.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Docker
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    wimwenigerkind/mkdocs-wim-wenigerkind
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../projects/projects/" class="md-tabs__link">
+          
+  
+  
+  Projects
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Docker
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../proxmox/" class="md-tabs__link">
+          
+  
+  
+  Other Documentations
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../bitbucket-pipelines/bitbucket-pipelines/" class="md-tabs__link">
+          
+  
+  
+  Bitbucket Pipelines
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../docker-hub/docker-hub/" class="md-tabs__link">
+          
+  
+  
+  Docker Hub
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../homebrew/" class="md-tabs__link">
+          
+  
+  
+  Homebrew
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../changelog/en/" class="md-tabs__link">
+          
+  
+  
+  Changelog
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Docs" class="md-nav__button md-logo" aria-label="Docs" data-md-component="logo">
+      
+  <img src="https://images.wimwenigerkind.com/wimwenigerkind-transparent-icon.png" alt="logo">
+
+    </a>
+    Docs
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    wimwenigerkind/mkdocs-wim-wenigerkind
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Projects
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/projects/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Projects
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/gamepanel/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    GamePanel
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../projects/docker-compose-helper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Compose Helper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Docker
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Docker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-dockers-official-gpg-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Docker's official GPG key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-repository-to-apt-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add the repository to Apt sources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-latest-version-of-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Latest version of Docker
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-a-docker-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run a Docker container
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-your-own-docker-image-and-push-it-to-docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create your own Docker Image and Push it to Docker Hub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-about-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      What about Docker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What about Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virtualisierung-vs-containerisierung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtualisierung vs Containerisierung
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-fur-docker-befehle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beispiel für Docker-Befehle:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerbefehle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dockerbefehle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-volumes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker-Volumes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker-Networks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker-Networks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bridge-netzwerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bridge Netzwerk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-netzwerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Host Netzwerk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#none-netzwerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      None Netzwerk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vergleiche-der-standard-netzwerke" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vergleiche der Standard Netzwerke
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nicht-standard-netzwerke" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nicht-Standard Netzwerke
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nicht-Standard Netzwerke">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#benutzerdefiniertes-bridge-netzwerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benutzerdefiniertes Bridge-Netzwerk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macvlan-netzwerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Macvlan-Netzwerk
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vergleich-der-nicht-standard-netzwerke" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vergleich der nicht Standard Netzwerke:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#welches-netzwerk-sollte-ich-verwenden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Welches Netzwerk sollte ich verwenden?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-befehle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Compose befehle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-befehle-fur-einzelne-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Compose Befehle für einzelne Services
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-images-und-dockerfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Images und Dockerfiles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Images und Dockerfiles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Images
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dockerfiles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#andere-wichtige-dockerfile-befehle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Andere wichtige Dockerfile-Befehle:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-image-aus-dockerfile-bauen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker-Image aus Dockerfile bauen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-buildx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Buildx
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Buildx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation-von-docker-buildx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation von Docker Buildx
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bauen-eines-multi-architecture-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bauen eines Multi-Architecture Images
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Hub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../docker-compose/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Compose
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Docker Containers
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            Docker Containers
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../portainer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Portainer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wireguard-and-ui/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Wireguard + Wireguard Ui
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uptime-kuma/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Uptime Kuma
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guacamole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Guacamole
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../homepage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homepage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../keycloak/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Keycloak
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../faster-whisper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Whisper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../piper/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Piper
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mailpit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Mailpit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mysql/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MySQL
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../stirling-pdf/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Stirling PDF
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../gitea/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Gitea
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../apache2/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Apache2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../nextcloud/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Nextcloud
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../wordpress/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Wordpress
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Other Documentations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Other Documentations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../proxmox/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Proxmox
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    apt
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            apt
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../openssh-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    OpenSSH-Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mkdocs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MkDocs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pihole/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    piHole
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../git/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Git
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Bitbucket Pipelines
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Bitbucket Pipelines
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bitbucket-pipelines/bitbucket-pipelines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Bitbucket Pipelines
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bitbucket-pipelines/docker-multi-arch-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Multi Arch Docker Image Pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bitbucket-pipelines/mkdocs-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    MkDocs Pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Docker Hub
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Docker Hub
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker-hub/docker-hub/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Docker Hub
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker-hub/symfony-7-pipeline/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Symfony 7 Pipeline
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker-hub/minecraft/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Minecraft Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../docker-hub/satisfactory-server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Satisfactory Server
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Homebrew
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            Homebrew
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../homebrew/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homebrew
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../homebrew/formula/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Homebrew Formula
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    wswcli
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            wswcli
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../homebrew/wswcli/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    About
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../homebrew/wswcli/patchvendor/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Patch Vendor
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Changelog
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            Changelog
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/en/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    EN
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../changelog/de/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DE
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Docker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Install Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#add-dockers-official-gpg-key" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add Docker's official GPG key
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-the-repository-to-apt-sources" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add the repository to Apt sources
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-latest-version-of-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Install Latest version of Docker
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#run-a-docker-container" class="md-nav__link">
+    <span class="md-ellipsis">
+      Run a Docker container
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-your-own-docker-image-and-push-it-to-docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create your own Docker Image and Push it to Docker Hub
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-about-docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      What about Docker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What about Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#virtualisierung-vs-containerisierung" class="md-nav__link">
+    <span class="md-ellipsis">
+      Virtualisierung vs Containerisierung
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#beispiel-fur-docker-befehle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Beispiel für Docker-Befehle:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerbefehle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dockerbefehle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-volumes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker-Volumes
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-networks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker-Networks
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker-Networks">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bridge-netzwerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bridge Netzwerk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#host-netzwerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Host Netzwerk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#none-netzwerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      None Netzwerk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vergleiche-der-standard-netzwerke" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vergleiche der Standard Netzwerke
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nicht-standard-netzwerke" class="md-nav__link">
+    <span class="md-ellipsis">
+      Nicht-Standard Netzwerke
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Nicht-Standard Netzwerke">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#benutzerdefiniertes-bridge-netzwerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Benutzerdefiniertes Bridge-Netzwerk
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#macvlan-netzwerk" class="md-nav__link">
+    <span class="md-ellipsis">
+      Macvlan-Netzwerk
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vergleich-der-nicht-standard-netzwerke" class="md-nav__link">
+    <span class="md-ellipsis">
+      Vergleich der nicht Standard Netzwerke:
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#welches-netzwerk-sollte-ich-verwenden" class="md-nav__link">
+    <span class="md-ellipsis">
+      Welches Netzwerk sollte ich verwenden?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Compose
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Compose">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-befehle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Compose befehle
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-compose-befehle-fur-einzelne-services" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Compose Befehle für einzelne Services
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-images-und-dockerfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Images und Dockerfiles
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Images und Dockerfiles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#docker-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Images
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dockerfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      Dockerfiles
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#andere-wichtige-dockerfile-befehle" class="md-nav__link">
+    <span class="md-ellipsis">
+      Andere wichtige Dockerfile-Befehle:
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-image-aus-dockerfile-bauen" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker-Image aus Dockerfile bauen
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-buildx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Buildx
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Docker Buildx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#installation-von-docker-buildx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Installation von Docker Buildx
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bauen-eines-multi-architecture-images" class="md-nav__link">
+    <span class="md-ellipsis">
+      Bauen eines Multi-Architecture Images
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#docker-hub" class="md-nav__link">
+    <span class="md-ellipsis">
+      Docker Hub
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+  <h1>Docker</h1>
+
+<p><a href="https://docs.docker.com/engine/install/ubuntu/#install-using-the-repository">Docker</a> Installation on Linux</p>
+<h2 id="install-docker">Install Docker</h2>
+<h3 id="add-dockers-official-gpg-key">Add Docker's official GPG key</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>ca-certificates<span class="w"> </span>curl
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>sudo<span class="w"> </span>install<span class="w"> </span>-m<span class="w"> </span><span class="m">0755</span><span class="w"> </span>-d<span class="w"> </span>/etc/apt/keyrings
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>sudo<span class="w"> </span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://download.docker.com/linux/ubuntu/gpg<span class="w"> </span>-o<span class="w"> </span>/etc/apt/keyrings/docker.asc
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>sudo<span class="w"> </span>chmod<span class="w"> </span>a+r<span class="w"> </span>/etc/apt/keyrings/docker.asc
+</span></code></pre></div>
+<h3 id="add-the-repository-to-apt-sources">Add the repository to Apt sources</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">echo</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="s2">&quot;deb [arch=</span><span class="k">$(</span>dpkg<span class="w"> </span>--print-architecture<span class="k">)</span><span class="s2"> signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="k">$(</span>.<span class="w"> </span>/etc/os-release<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$VERSION_CODENAME</span><span class="s2">&quot;</span><span class="k">)</span><span class="s2"> stable&quot;</span><span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="se">\</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/docker.list<span class="w"> </span>&gt;<span class="w"> </span>/dev/null
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+</span></code></pre></div>
+<h3 id="install-latest-version-of-docker">Install Latest version of Docker</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>docker-ce<span class="w"> </span>docker-ce-cli<span class="w"> </span>containerd.io<span class="w"> </span>docker-buildx-plugin<span class="w"> </span>docker-compose-plugin
+</span></code></pre></div>
+<h2 id="run-a-docker-container">Run a Docker container</h2>
+<p>To run a Docker container, you can use the following command, replacing <code>&lt;image_name&gt;</code> with the name of the image you want to run:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--name<span class="w"> </span>&lt;container_name&gt;<span class="w"> </span>&lt;image_name&gt;
+</span></code></pre></div>
+<p>This command will pull the Docker image if not already present locally, start a container in detached mode, and assign it the given name.</p>
+<h2 id="create-your-own-docker-image-and-push-it-to-docker-hub">Create your own Docker Image and Push it to Docker Hub</h2>
+<p>WIP</p>
+<h2 id="what-about-docker">What about Docker</h2>
+<p>Docker is a platform for developing, shipping, and running applications in containers. Containers allow a developer to package up an application with all parts it needs, such as libraries and other dependencies, and ship it all out as one package. By doing so, the developer can be sure that the application will run on any other Linux machine regardless of any customized settings that machine might have that could differ from the machine used for writing and testing the code.</p>
+<h3 id="virtualisierung-vs-containerisierung">Virtualisierung vs Containerisierung</h3>
+<p>Container:</p>
+<ul>
+<li>Leichtgewichtig </li>
+<li>Teilt den OS-Kernel mit dem Host </li>
+<li>Enthält nur die notwendigen Anwendungen und Bibliotheken </li>
+<li>Startet schnell und verbraucht wenig Ressourcen </li>
+</ul>
+<p>Virtuelle Maschinen:
+- Schwergewichtig 
+- Enthält das gesamte Betriebssystem (erfordert Hypervisor)
+- Isolation durch Hypervisor 
+- Langsamer und ressourcenintensiver Start</p>
+<h3 id="docker">Docker</h3>
+<p>Docker ist eine Open-Source-Plattform, die es ermöglicht, Anwendungen in Containern zu verpacken, bereitzustellen und auszuführen. Dadurch werden Anwendungen und deren Abhängigkeiten unabhängig vom Host-Betriebssystem, was das Deployment vereinfacht. Docker-Container sind portable Laufzeitumgebungen, die isolierte und reproduzierbare Umgebungen durch Docker-Images bereitstellen, die alle nötigen Abhängigkeiten enthalten.</p>
+<p>Docker-Architektur:
+- Docker-Engine: Kernkomponente, die Container erstellt und verwaltet. 
+- Docker-Daemon: Hintergrundprozess, der Docker-Objekte (Container, Images, Volumes) steuert. 
+- Docker-CLI: Kommandozeilenwerkzeug zur Interaktion mit der Docker-Engine.</p>
+<p>Vorteile von Docker:
+- Portabilität: Einmal erstellte Container laufen überall (Cloud, Server, lokal). 
+- Konsistenz: Gleiche Umgebungen in Entwicklung und Produktion. 
+- Schnelles Deployment: Container starten schneller als VMs. 
+- Ressourceneffizienz: Container benötigen weniger Speicher und Rechenleistung.</p>
+<h4 id="beispiel-fur-docker-befehle">Beispiel für Docker-Befehle:</h4>
+<p>Hier wird gezeigt wie einfach es ist einen Container zu starten.</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">8888</span>:80<span class="w"> </span>--name<span class="w"> </span>apache2<span class="w"> </span>ubuntu/apache2:latest
+</span></code></pre></div>
+<p>Mit diesem Befehl ist es möglich einen Apache2 Webserver in einem Container zu starten. Der Container wird im Hintergrund gestartet und der Port 8888 des Hosts wird auf den Port 80 des Containers gemappt.</p>
+<p>Aufbau des Docker-Befehls:
+- <code>docker run</code>: Startet einen neuen Container.
+- <code>-d</code>: Startet den Container im Hintergrund.
+- <code>-p 8888:80</code>: Mapt den Port 8888 des Hosts auf den Port 80 des Containers.
+- <code>--name apache2</code>: Gibt dem Container den Namen "apache2".
+- <code>ubuntu/apache2:latest</code>: Verwendet das Image "ubuntu/apache2" mit dem Tag "latest".
+- <code>latest</code>: Tag des Images, in diesem Fall die neueste Version.</p>
+<h4 id="dockerbefehle">Dockerbefehle</h4>
+<ul>
+<li><code>docker run</code>: Startet einen neuen Container.</li>
+<li><code>docker ps</code>: Zeigt alle laufenden Container an.</li>
+<li><code>docker ps -a</code>: Zeigt alle Container an.</li>
+<li><code>docker stop &lt;container_id&gt;</code>: Stoppt einen Container.</li>
+<li><code>docker start &lt;container_id&gt;</code>: Startet einen gestoppten Container.</li>
+<li><code>docker rm &lt;container_id&gt;</code>: Löscht einen Container.</li>
+<li><code>docker rmi &lt;image_id&gt;</code>: Löscht ein Image.</li>
+<li><code>docker images</code>: Zeigt alle Images an.</li>
+<li><code>docker pull &lt;image_name&gt;</code>: Lädt ein Image herunter.</li>
+<li><code>docker push &lt;image_name&gt;</code>: Lädt ein Image auf Docker Hub hoch.</li>
+<li><code>docker exec -it &lt;container_id&gt; bash</code>: Startet eine interaktive Shell in einem Container.</li>
+<li><code>docker logs &lt;container_id&gt;</code>: Zeigt die Logs eines Containers an.</li>
+<li><code>docker inspect &lt;container_id&gt;</code>: Zeigt detaillierte Informationen über einen Container an.</li>
+<li><code>docker stats</code>: Zeigt die Ressourcennutzung der laufenden Container an.</li>
+</ul>
+<h4 id="docker-volumes">Docker-Volumes</h4>
+<p>Persistente Speicherlösung für Docker-Container, die Daten auch nach dem Neustarten des Containers bewahrt.</p>
+<h4 id="docker-networks">Docker-Networks</h4>
+<p>Es gibt 7 verschiedene Netzwerkarten in Docker:</p>
+<p>Default Bridge Network: Standard-Netzwerk, das von Docker bereitgestellt wird.
+- Ein virtuelles Netzwerk.</p>
+<p>Docker Netzwerke anzeigen lassen:</p>
+<p><div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>docker<span class="w"> </span>network<span class="w"> </span>ls
+</span></code></pre></div>
+<img alt="Login Page" src="../../images/docker-networks-ls.png" /></p>
+<ul>
+<li><code>NETWORK ID</code>: Eindeutige ID des Netzwerks.</li>
+<li><code>NAME</code>: Name des Netzwerks.</li>
+<li><code>DRIVER</code>: Treiber des Netzwerks.</li>
+<li><code>SCOPE</code>: Sichtbarkeit des Netzwerks.</li>
+</ul>
+<h5 id="bridge-netzwerk">Bridge Netzwerk</h5>
+<p>Standard Netzwerke: <code>bridge</code></p>
+<p>Das Bridge-Netzwerk ist das Standardnetzwerk, das Docker verwendet, wenn kein anderes Netzwerk explizit angegeben wird. Es ist eine virtuelle Netzwerkschnittstelle, die es Containern ermöglicht, miteinander zu kommunizieren, während sie von der Außenwelt isoliert bleiben.</p>
+<p>Eigenschaften:
+- Container erhalten eine eigene IP-Adresse innerhalb des Bridge-Netzwerks (standardmäßig 172.x.x.x).
+- Container können über diese IP-Adressen oder Container-Namen miteinander kommunizieren.
+- Die Außenwelt kann auf Container nur zugreifen, wenn Ports explizit freigegeben werden (-p oder --publish).
+- Es nutzt NAT (Network Address Translation), um den Verkehr zwischen dem Docker-Host und Containern zu ermöglichen.</p>
+<p>Vorteile:
+- Einfache Konfiguration und Verwendung.
+- Gute Isolation der Container.
+- Einfacher Zugriff auf Container durch Port-Mapping.</p>
+<p>Mit dem Befehl
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>docker<span class="w"> </span>network<span class="w"> </span>inspect<span class="w"> </span>bridge
+</span></code></pre></div>
+kann man sich die Informationen zum <code>bridge</code> Netzwerk anzeigen lassen.</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">[</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bridge&quot;</span><span class="p">,</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">    </span><span class="nt">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;3d7014a8b159afd9018310fa42a78f7e84fdb6dabab7c5a072146d94eb814f0c&quot;</span><span class="p">,</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">    </span><span class="nt">&quot;Created&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-11-05T07:22:58.436486668Z&quot;</span><span class="p">,</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">    </span><span class="nt">&quot;Scope&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="p">,</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">    </span><span class="nt">&quot;Driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;bridge&quot;</span><span class="p">,</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">    </span><span class="nt">&quot;EnableIPv6&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="nt">&quot;IPAM&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">      </span><span class="nt">&quot;Driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">      </span><span class="nt">&quot;Options&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">      </span><span class="nt">&quot;Config&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="p">{</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">          </span><span class="nt">&quot;Subnet&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;172.17.0.0/16&quot;</span><span class="p">,</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">          </span><span class="nt">&quot;Gateway&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;172.17.0.1&quot;</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">        </span><span class="p">}</span>
+</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="w">      </span><span class="p">]</span>
+</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="w">    </span><span class="nt">&quot;Internal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="w">    </span><span class="nt">&quot;Attachable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="w">    </span><span class="nt">&quot;Ingress&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="w">    </span><span class="nt">&quot;ConfigFrom&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="w">      </span><span class="nt">&quot;Network&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="w">    </span><span class="nt">&quot;ConfigOnly&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="w">    </span><span class="nt">&quot;Containers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="w">      </span><span class="nt">&quot;3f55ac9eac446f2d88b54ba6c31fc81a869e6002303020dd477552f8dad7ba78&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="w">        </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;OllamaUI&quot;</span><span class="p">,</span>
+</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="w">        </span><span class="nt">&quot;EndpointID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;09b08412df42d0e358130315ce86e322f99427a3effe7d8f3ed6060be26a83f4&quot;</span><span class="p">,</span>
+</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="w">        </span><span class="nt">&quot;MacAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;02:42:ac:11:00:05&quot;</span><span class="p">,</span>
+</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="w">        </span><span class="nt">&quot;IPv4Address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;172.17.0.5/16&quot;</span><span class="p">,</span>
+</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="w">        </span><span class="nt">&quot;IPv6Address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="w">      </span><span class="p">},</span>
+</span><span id="__span-7-34"><a id="__codelineno-7-34" name="__codelineno-7-34" href="#__codelineno-7-34"></a><span class="w">      </span><span class="nt">&quot;95a180a5fe90890294cf71690fe9bcc0534d60d22f71bd5a085b769f13fbc6e5&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-35"><a id="__codelineno-7-35" name="__codelineno-7-35" href="#__codelineno-7-35"></a><span class="w">        </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;my-mysql&quot;</span><span class="p">,</span>
+</span><span id="__span-7-36"><a id="__codelineno-7-36" name="__codelineno-7-36" href="#__codelineno-7-36"></a><span class="w">        </span><span class="nt">&quot;EndpointID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;31b3324e7f8d07d166f7cd7f7e950ac3ee7f63da87fc326d3513ac15cb1ed420&quot;</span><span class="p">,</span>
+</span><span id="__span-7-37"><a id="__codelineno-7-37" name="__codelineno-7-37" href="#__codelineno-7-37"></a><span class="w">        </span><span class="nt">&quot;MacAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;02:42:ac:11:00:03&quot;</span><span class="p">,</span>
+</span><span id="__span-7-38"><a id="__codelineno-7-38" name="__codelineno-7-38" href="#__codelineno-7-38"></a><span class="w">        </span><span class="nt">&quot;IPv4Address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;172.17.0.3/16&quot;</span><span class="p">,</span>
+</span><span id="__span-7-39"><a id="__codelineno-7-39" name="__codelineno-7-39" href="#__codelineno-7-39"></a><span class="w">        </span><span class="nt">&quot;IPv6Address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-7-40"><a id="__codelineno-7-40" name="__codelineno-7-40" href="#__codelineno-7-40"></a><span class="w">      </span><span class="p">},</span>
+</span><span id="__span-7-41"><a id="__codelineno-7-41" name="__codelineno-7-41" href="#__codelineno-7-41"></a><span class="w">      </span><span class="nt">&quot;bc27198fa2b63fe07bff11c18be6814e05ba0e54c0bc38f48c7ea150dcf756d7&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-42"><a id="__codelineno-7-42" name="__codelineno-7-42" href="#__codelineno-7-42"></a><span class="w">        </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;buildx_buildkit_wizardly_lamport0&quot;</span><span class="p">,</span>
+</span><span id="__span-7-43"><a id="__codelineno-7-43" name="__codelineno-7-43" href="#__codelineno-7-43"></a><span class="w">        </span><span class="nt">&quot;EndpointID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;30b2b3362b0cbe37b7b387aa38f8001971fb7ddfec92325d850e8854010668b4&quot;</span><span class="p">,</span>
+</span><span id="__span-7-44"><a id="__codelineno-7-44" name="__codelineno-7-44" href="#__codelineno-7-44"></a><span class="w">        </span><span class="nt">&quot;MacAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;02:42:ac:11:00:02&quot;</span><span class="p">,</span>
+</span><span id="__span-7-45"><a id="__codelineno-7-45" name="__codelineno-7-45" href="#__codelineno-7-45"></a><span class="w">        </span><span class="nt">&quot;IPv4Address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;172.17.0.2/16&quot;</span><span class="p">,</span>
+</span><span id="__span-7-46"><a id="__codelineno-7-46" name="__codelineno-7-46" href="#__codelineno-7-46"></a><span class="w">        </span><span class="nt">&quot;IPv6Address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-7-47"><a id="__codelineno-7-47" name="__codelineno-7-47" href="#__codelineno-7-47"></a><span class="w">      </span><span class="p">},</span>
+</span><span id="__span-7-48"><a id="__codelineno-7-48" name="__codelineno-7-48" href="#__codelineno-7-48"></a><span class="w">      </span><span class="nt">&quot;c5780243f11251bc99800c91e44e2013ea9813a8dbe20f3edea9cec3cf7592e9&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-49"><a id="__codelineno-7-49" name="__codelineno-7-49" href="#__codelineno-7-49"></a><span class="w">        </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uptime-kuma&quot;</span><span class="p">,</span>
+</span><span id="__span-7-50"><a id="__codelineno-7-50" name="__codelineno-7-50" href="#__codelineno-7-50"></a><span class="w">        </span><span class="nt">&quot;EndpointID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;7d006cacd02343fbcbdb8fb261fef188d264bd958683ec4a8003ad1adcb8f5d3&quot;</span><span class="p">,</span>
+</span><span id="__span-7-51"><a id="__codelineno-7-51" name="__codelineno-7-51" href="#__codelineno-7-51"></a><span class="w">        </span><span class="nt">&quot;MacAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;02:42:ac:11:00:04&quot;</span><span class="p">,</span>
+</span><span id="__span-7-52"><a id="__codelineno-7-52" name="__codelineno-7-52" href="#__codelineno-7-52"></a><span class="w">        </span><span class="nt">&quot;IPv4Address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;172.17.0.4/16&quot;</span><span class="p">,</span>
+</span><span id="__span-7-53"><a id="__codelineno-7-53" name="__codelineno-7-53" href="#__codelineno-7-53"></a><span class="w">        </span><span class="nt">&quot;IPv6Address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-7-54"><a id="__codelineno-7-54" name="__codelineno-7-54" href="#__codelineno-7-54"></a><span class="w">      </span><span class="p">}</span>
+</span><span id="__span-7-55"><a id="__codelineno-7-55" name="__codelineno-7-55" href="#__codelineno-7-55"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-7-56"><a id="__codelineno-7-56" name="__codelineno-7-56" href="#__codelineno-7-56"></a><span class="w">    </span><span class="nt">&quot;Options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-57"><a id="__codelineno-7-57" name="__codelineno-7-57" href="#__codelineno-7-57"></a><span class="w">      </span><span class="nt">&quot;com.docker.network.bridge.default_bridge&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+</span><span id="__span-7-58"><a id="__codelineno-7-58" name="__codelineno-7-58" href="#__codelineno-7-58"></a><span class="w">      </span><span class="nt">&quot;com.docker.network.bridge.enable_icc&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+</span><span id="__span-7-59"><a id="__codelineno-7-59" name="__codelineno-7-59" href="#__codelineno-7-59"></a><span class="w">      </span><span class="nt">&quot;com.docker.network.bridge.enable_ip_masquerade&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;true&quot;</span><span class="p">,</span>
+</span><span id="__span-7-60"><a id="__codelineno-7-60" name="__codelineno-7-60" href="#__codelineno-7-60"></a><span class="w">      </span><span class="nt">&quot;com.docker.network.bridge.host_binding_ipv4&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;0.0.0.0&quot;</span><span class="p">,</span>
+</span><span id="__span-7-61"><a id="__codelineno-7-61" name="__codelineno-7-61" href="#__codelineno-7-61"></a><span class="w">      </span><span class="nt">&quot;com.docker.network.bridge.name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;docker0&quot;</span><span class="p">,</span>
+</span><span id="__span-7-62"><a id="__codelineno-7-62" name="__codelineno-7-62" href="#__codelineno-7-62"></a><span class="w">      </span><span class="nt">&quot;com.docker.network.driver.mtu&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;65535&quot;</span>
+</span><span id="__span-7-63"><a id="__codelineno-7-63" name="__codelineno-7-63" href="#__codelineno-7-63"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-7-64"><a id="__codelineno-7-64" name="__codelineno-7-64" href="#__codelineno-7-64"></a><span class="w">    </span><span class="nt">&quot;Labels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-7-65"><a id="__codelineno-7-65" name="__codelineno-7-65" href="#__codelineno-7-65"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-7-66"><a id="__codelineno-7-66" name="__codelineno-7-66" href="#__codelineno-7-66"></a><span class="p">]</span>
+</span></code></pre></div>
+<h5 id="host-netzwerk">Host Netzwerk</h5>
+<p>Es nutzt NAT (Network Address Translation), um den Verkehr zwischen dem Docker-Host und Containern zu ermöglichen.</p>
+<p>Eigenschaften:
+- Container verwendet die Netzwerk-Schnittstellen des Hosts (z. B. eth0 des Hosts).
+- Kein Port-Mapping erforderlich, da der Container die gleichen Ports wie der Host verwendet.
+- Schneller als Bridge, da keine virtuelle Netzwerkschicht dazwischen liegt.
+- Keine Isolation auf Netzwerkebene.</p>
+<p>Vorteile:
+- Weniger Overhead und daher schneller.
+- Sinnvoll für Anwendungen, die direkten Zugriff auf das Netzwerk des Hosts benötigen (z. B. Monitoring-Anwendungen).</p>
+<p>Nachteile:
+- Keine Isolation auf Netzwerkebene.
+- Konfilkte möglich, wenn ein Container und der Host denselben Port verwenden.</p>
+<p>Mit dem Befehl
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>docker<span class="w"> </span>insepct<span class="w"> </span>host
+</span></code></pre></div>
+kann man sich die Informationen zu dem <code>host</code> Netzwerk anzeigen lassen.</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">[</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">    </span><span class="p">{</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">        </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;host&quot;</span><span class="p">,</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">        </span><span class="nt">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;58c3a04140448fec2277fd593a9912b33f073291b6f063f47d9c107a8394ea5a&quot;</span><span class="p">,</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">        </span><span class="nt">&quot;Created&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-08-01T11:20:36.553257125Z&quot;</span><span class="p">,</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a><span class="w">        </span><span class="nt">&quot;Scope&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="p">,</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="w">        </span><span class="nt">&quot;Driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;host&quot;</span><span class="p">,</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">        </span><span class="nt">&quot;EnableIPv6&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">        </span><span class="nt">&quot;IPAM&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">            </span><span class="nt">&quot;Driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a><span class="w">            </span><span class="nt">&quot;Options&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a><span class="w">            </span><span class="nt">&quot;Config&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a><span class="w">        </span><span class="nt">&quot;Internal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a><span class="w">        </span><span class="nt">&quot;Attachable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16" href="#__codelineno-9-16"></a><span class="w">        </span><span class="nt">&quot;Ingress&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17" href="#__codelineno-9-17"></a><span class="w">        </span><span class="nt">&quot;ConfigFrom&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18" href="#__codelineno-9-18"></a><span class="w">            </span><span class="nt">&quot;Network&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19" href="#__codelineno-9-19"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20" href="#__codelineno-9-20"></a><span class="w">        </span><span class="nt">&quot;ConfigOnly&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21" href="#__codelineno-9-21"></a><span class="w">        </span><span class="nt">&quot;Containers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22" href="#__codelineno-9-22"></a><span class="w">            </span><span class="nt">&quot;0301d49daa889b28000bbc8e1d49599f56fdf2f09ea417e9e4ab36ba5e87b68c&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23" href="#__codelineno-9-23"></a><span class="w">                </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;cloudflared&quot;</span><span class="p">,</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24" href="#__codelineno-9-24"></a><span class="w">                </span><span class="nt">&quot;EndpointID&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;38e2fff78942b987ea8f5ec50e82be4a27f9522d7302a74ca1452744ec0ef500&quot;</span><span class="p">,</span>
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25" href="#__codelineno-9-25"></a><span class="w">                </span><span class="nt">&quot;MacAddress&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26" href="#__codelineno-9-26"></a><span class="w">                </span><span class="nt">&quot;IPv4Address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27" href="#__codelineno-9-27"></a><span class="w">                </span><span class="nt">&quot;IPv6Address&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28" href="#__codelineno-9-28"></a><span class="w">            </span><span class="p">}</span>
+</span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29" href="#__codelineno-9-29"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30" href="#__codelineno-9-30"></a><span class="w">        </span><span class="nt">&quot;Options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+</span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31" href="#__codelineno-9-31"></a><span class="w">        </span><span class="nt">&quot;Labels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-9-32"><a id="__codelineno-9-32" name="__codelineno-9-32" href="#__codelineno-9-32"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-9-33"><a id="__codelineno-9-33" name="__codelineno-9-33" href="#__codelineno-9-33"></a><span class="p">]</span>
+</span></code></pre></div>
+<h5 id="none-netzwerk">None Netzwerk</h5>
+<p>Das None-Netzwerk deaktiviert die Netzwerkkonnektivität des Containers vollständig. Der Container hat keinen Zugriff auf andere Container, den Host oder das Internet.</p>
+<p>Eigenschaften:
+- Container ist vollständig isoliert auf Netzwerkebene.
+- Keine Netzwerkschnittstelle im Container außer der lo (Loopback-Schnittstelle).
+- Ideal für Anwendungen, die kein Netzwerk benötigen.</p>
+<p>Vorteile:
+- Maximale Sicherheit und Isolation.
+- Verhindert versehentliche Netzwerkkonflikte.</p>
+<p>Nachteile:
+- Kein Zugriff auf andere Dienste oder das Internet.</p>
+<p>Mit dem Befehl
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>docker<span class="w"> </span>inspect<span class="w"> </span>none
+</span></code></pre></div>
+kann man sich die Informationen zu dem <code>none</code> Netzwerk anzeigen lassen.</p>
+<div class="language-json highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">[</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="p">{</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">    </span><span class="nt">&quot;Name&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">    </span><span class="nt">&quot;Id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;e51e946b1190696a71652a49ade22ee15a0dae768e3f8e0b4e9c039f22625435&quot;</span><span class="p">,</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">    </span><span class="nt">&quot;Created&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2024-08-01T11:20:36.547084166Z&quot;</span><span class="p">,</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="w">    </span><span class="nt">&quot;Scope&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;local&quot;</span><span class="p">,</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">    </span><span class="nt">&quot;Driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;null&quot;</span><span class="p">,</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="nt">&quot;EnableIPv6&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="nt">&quot;IPAM&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">      </span><span class="nt">&quot;Driver&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;default&quot;</span><span class="p">,</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="w">      </span><span class="nt">&quot;Options&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">      </span><span class="nt">&quot;Config&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">    </span><span class="nt">&quot;Internal&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">    </span><span class="nt">&quot;Attachable&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">    </span><span class="nt">&quot;Ingress&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">    </span><span class="nt">&quot;ConfigFrom&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">      </span><span class="nt">&quot;Network&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">    </span><span class="nt">&quot;ConfigOnly&quot;</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="w">    </span><span class="nt">&quot;Containers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="w">    </span><span class="nt">&quot;Options&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{},</span>
+</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="w">    </span><span class="nt">&quot;Labels&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span>
+</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="p">]</span>
+</span></code></pre></div>
+<h5 id="vergleiche-der-standard-netzwerke">Vergleiche der Standard Netzwerke</h5>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Bridge</th>
+<th>Host</th>
+<th>None</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Isolation</strong></td>
+<td>Gut</td>
+<td>Keine</td>
+<td>Vollständig</td>
+</tr>
+<tr>
+<td><strong>Performance</strong></td>
+<td>Moderate</td>
+<td>Hoch</td>
+<td>Hoch</td>
+</tr>
+<tr>
+<td><strong>Internet-Zugang</strong></td>
+<td>Optional (Port-Mapping)</td>
+<td>Direkt</td>
+<td>Kein Zugang</td>
+</tr>
+<tr>
+<td><strong>Anwendung</strong></td>
+<td>Standard-Container</td>
+<td>Netzwerkanwendungen</td>
+<td>Isolierte Prozesse</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><strong>Fazit:</strong>
+- Verwende <strong>bridge</strong>, wenn du Container isolieren, aber dennoch miteinander kommunizieren lassen möchtest.
+- Verwende <strong>host</strong>, wenn die Performance wichtig ist oder der Container direkten Zugriff auf das Host-Netzwerk benötigt.
+- Verwende <strong>none</strong>, wenn der Container kein Netzwerk benötigt oder maximale Isolation erforderlich ist.</p>
+<h4 id="nicht-standard-netzwerke">Nicht-Standard Netzwerke</h4>
+<p>Neben den Standardnetzwerken (<strong>bridge</strong>, <strong>host</strong>, <strong>none</strong>) bietet Docker auch <strong>benutzerdefinierte Netzwerke</strong>, die mehr Kontrolle und Flexibilität bei der Konfiguration ermöglichen. Diese Netzwerke erlauben es, Container gezielt zu verbinden und komplexere Netzwerktopologien zu erstellen. Es gibt hauptsächlich zwei nicht-standardmäßige Netzwerke: <strong>Overlay</strong> und <strong>Macvlan</strong>, sowie benutzerdefinierte <strong>Bridge-Netzwerke</strong>.</p>
+<h5 id="benutzerdefiniertes-bridge-netzwerk">Benutzerdefiniertes Bridge-Netzwerk</h5>
+<p>Ein benutzerdefiniertes Bridge-Netzwerk ist eine Erweiterung des Standard-Bridge-Netzwerks mit zusätzlichen Funktionen, wie z. B. benutzerdefinierte Subnetze, IP-Adressen und DNS-Optionen.</p>
+<p>Eigenschaften:
+- Container im selben benutzerdefinierten Netzwerk können sich gegenseitig über ihren Container-Namen erreichen (automatisches DNS).
+- Ermöglicht benutzerdefinierte Subnetze und statische IP-Adressen.
+- Die Container sind von anderen Netzwerken isoliert, es sei denn, es wird explizit eine Verbindung hergestellt.</p>
+<p>Vorteile:
+- Erleichtert die Kommunikation zwischen Containern im selben Netzwerk.
+- Bessere Kontrolle über Netzwerkeinstellungen (z. B. IP-Bereich, Gateway).</p>
+<p>Beispiel:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="w">  </span>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="w">    </span>--driver<span class="w"> </span>bridge<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a><span class="w">    </span>--subnet<span class="o">=</span><span class="m">192</span>.168.1.0/24<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="w">    </span>my_custom_network
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>docker<span class="w"> </span>run<span class="w"> </span>--network<span class="w"> </span>my_custom_network<span class="w"> </span>--name<span class="w"> </span>webserver<span class="w"> </span>nginx
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>docker<span class="w"> </span>run<span class="w"> </span>--network<span class="w"> </span>my_custom_network<span class="w"> </span>--name<span class="w"> </span>appserver<span class="w"> </span>my_app
+</span></code></pre></div>
+In diesem Fall können <code>webserver</code> und <code>appserver</code> sich gegenseitig über ihre Namen erreichen.</p>
+<h5 id="macvlan-netzwerk">Macvlan-Netzwerk</h5>
+<p>Das Macvlan-Netzwerk gibt Containern eine eigene <strong>MAC-Adresse</strong> und macht sie im physischen Netzwerk des Hosts sichtbar. Jeder Container erscheint wie ein eigenständiges Gerät im Netzwerk.</p>
+<p>Eigenschaften:
+- Container erhalten ihre IP-Adresse direkt vom Netzwerk des Hosts, als wären sie physische Geräte.
+- Container können direkt mit anderen Geräten im Netzwerk kommunizieren, ohne NAT oder Port-Mapping.
+- Container im Macvlan-Netzwerk sind isoliert von Containern im Host-Netzwerk (sofern keine zusätzlichen Verbindungen erstellt werden).</p>
+<p>Vorteile:
+- Ermöglicht direkten Zugriff auf das physische Netzwerk.
+- Nützlich für Umgebungen, in denen Container als physische Geräte auftreten sollen (z. B. bei Legacy-Systemen).</p>
+<p>Nachteile:
+- Keine direkte Kommunikation zwischen Host und Containern im Macvlan-Netzwerk (es sei denn, zusätzliche Konfigurationen wie <code>bridge</code> werden hinzugefügt).</p>
+<p>Beispiel:
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>docker<span class="w"> </span>network<span class="w"> </span>create<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="w">    </span>--driver<span class="w"> </span>macvlan<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="w">    </span>--subnet<span class="o">=</span><span class="m">192</span>.168.1.0/24<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">    </span>--gateway<span class="o">=</span><span class="m">192</span>.168.1.1<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span>-o<span class="w"> </span><span class="nv">parent</span><span class="o">=</span>eth0<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">    </span>my_macvlan_network
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>docker<span class="w"> </span>run<span class="w"> </span>--network<span class="w"> </span>my_macvlan_network<span class="w"> </span>--ip<span class="w"> </span><span class="m">192</span>.168.1.100<span class="w"> </span>nginx
+</span></code></pre></div>
+In diesem Beispiel hat der Container <code>nginx</code> eine eigene IP-Adresse im gleichen Netzwerk wie der Host.</p>
+<h4 id="vergleich-der-nicht-standard-netzwerke">Vergleich der nicht Standard Netzwerke:</h4>
+<table>
+<thead>
+<tr>
+<th>Netzwerktreiber</th>
+<th>Kommunikationstyp</th>
+<th>Anwendungsfall</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Bridge</strong></td>
+<td>Container-zu-Container</td>
+<td>Standard-Container-Kommunikation.</td>
+</tr>
+<tr>
+<td><strong>Benutzerdefiniert Bridge</strong></td>
+<td>Isolierte Gruppen von Containern</td>
+<td>Einfachere Service-Kommunikation.</td>
+</tr>
+<tr>
+<td><strong>Macvlan</strong></td>
+<td>Direktes LAN-Zugreifen</td>
+<td>Legacy-Systeme, direkte Netzwerkzugriffe.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="welches-netzwerk-sollte-ich-verwenden">Welches Netzwerk sollte ich verwenden?</h3>
+<ul>
+<li><strong>Benutzerdefiniertes Bridge-Netzwerk</strong>: Für Container, die auf demselben Host kommunizieren sollen, aber in einer isolierten Umgebung.</li>
+<li><strong>Macvlan-Netzwerk</strong>: Für Container, die mit physischen Netzwerken interagieren müssen oder von Legacy-Systemen erkannt werden sollen.</li>
+</ul>
+<h3 id="docker-compose">Docker Compose</h3>
+<p>Hier ist ein Beispiel für einen für einen Apache Webserver und eine MySQL Datenbank.</p>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nt">version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;3&#39;</span>
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="nt">services</span><span class="p">:</span>
+</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">  </span><span class="nt">web</span><span class="p">:</span>
+</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu/apache2:latest</span>
+</span><span id="__span-14-5"><a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+</span><span id="__span-14-6"><a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8888:80&quot;</span><span class="w"> </span>
+</span><span id="__span-14-7"><a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-14-8"><a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./html:/var/www/html</span>
+</span><span id="__span-14-9"><a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="w">  </span><span class="nt">db</span><span class="p">:</span>
+</span><span id="__span-14-10"><a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mysql:5.7</span>
+</span><span id="__span-14-11"><a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+</span><span id="__span-14-12"><a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="w">      </span><span class="nt">MYSQL_ROOT_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example</span>
+</span><span id="__span-14-13"><a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a><span class="w">      </span><span class="nt">MYSQL_DATABASE</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example_db</span>
+</span><span id="__span-14-14"><a id="__codelineno-14-14" name="__codelineno-14-14" href="#__codelineno-14-14"></a><span class="w">      </span><span class="nt">MYSQL_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example_user</span>
+</span><span id="__span-14-15"><a id="__codelineno-14-15" name="__codelineno-14-15" href="#__codelineno-14-15"></a><span class="w">      </span><span class="nt">MYSQL_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">example_password</span>
+</span><span id="__span-14-16"><a id="__codelineno-14-16" name="__codelineno-14-16" href="#__codelineno-14-16"></a><span class="w">    </span><span class="nt">volumes</span><span class="p">:</span>
+</span><span id="__span-14-17"><a id="__codelineno-14-17" name="__codelineno-14-17" href="#__codelineno-14-17"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">./mysql_data:/var/lib/mysql</span>
+</span></code></pre></div>
+<p>Erklärung des Docker-Compose-Skripts:</p>
+<p>web:
+- <code>image</code>: Verwendet das Image "ubuntu/apache2" mit dem Tag "latest".
+- <code>ports</code>: Mapt den Port 8888 des Hosts auf den Port 80 des Containers.
+- <code>volumes</code>: Mountet das Verzeichnis <code>./html</code> des Hosts in das Verzeichnis <code>/var/www/html</code> des Containers.</p>
+<p>db:
+- <code>image</code>: Verwendet das Image "mysql" mit dem Tag "5.7".
+- <code>environment</code>: Setzt Umgebungsvariablen für die MySQL-Datenbank.
+- <code>volumes</code>: Mountet das Verzeichnis <code>./mysql_data</code> des Hosts in das Verzeichnis <code>/var/lib/mysql</code> des Containers.</p>
+<p>Zum starten des Docker-Compose-Skripts wird folgender Befehl verwendet:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>docker-compose<span class="w"> </span>up<span class="w"> </span>-d
+</span></code></pre></div>
+<p>Mit diesem Befehl werden alle Container im Docker-Compose-Script im Hintergrund gestartet.</p>
+<h4 id="docker-compose-befehle">Docker Compose befehle</h4>
+<ul>
+<li><code>docker-compose up -d</code>: Startet alle Container in einem Docker-Compose-Projekt.</li>
+<li><code>docker-compose down</code>: Stoppt und entfernt alle Container in einem Docker-Compose-Projekt.</li>
+<li><code>docker-compose logs</code>: Zeigt die Logs aller Container in einem Docker-Compose-Projekt an.</li>
+<li><code>docker-compose exec &lt;service_name&gt; bash</code>: Startet eine interaktive Shell in einem Service eines Docker-Compose-Projekts.</li>
+<li><code>docker-compose ps</code>: Zeigt den Status aller Services in einem Docker-Compose-Projekt an.</li>
+<li><code>docker-compose build</code>: Baut die Images für alle Services in einem Docker-Compose-Projekt.</li>
+<li><code>docker-compose pull</code>: Lädt die Images für alle Services in einem Docker-Compose-Projekt herunter.</li>
+<li><code>docker-compose push</code>: Lädt die Images für alle Services in einem Docker-Compose-Projekt auf Docker Hub hoch.</li>
+<li><code>docker-compose restart</code>: Startet alle Services in einem Docker-Compose-Projekt neu.</li>
+<li><code>docker-compose stop</code>: Stoppt alle Services in einem Docker-Compose-Projekt.</li>
+<li><code>docker-compose start</code>: Startet alle Services in einem Docker-Compose-Projekt.</li>
+<li><code>docker-compose down -v</code>: Stoppt und entfernt alle Container und Volumes in einem Docker-Compose-Projekt.</li>
+<li><code>docker-compose top</code>: Zeigt die Prozesse eines Services in einem Docker-Compose-Projekt an.</li>
+<li><code>docker-compose events</code>: Zeigt die Events eines Docker-Compose-Projekts an.q</li>
+<li><code>docker-compose config</code>: Zeigt die Konfiguration eines Docker-Compose-Projekts an.</li>
+<li><code>docker-compose images</code>: Zeigt die Images eines Docker-Compose-Projekts an.</li>
+</ul>
+<h4 id="docker-compose-befehle-fur-einzelne-services">Docker Compose Befehle für einzelne Services</h4>
+<ul>
+<li><code>docker-compose up -d --scale &lt;service_name&gt;=&lt;number_of_instances&gt;</code>: Startet mehrere Instanzen eines Services in einem Docker-Compose-Projekt.</li>
+<li><code>docker-compose exec &lt;service_name&gt; &lt;command&gt;</code>: Führt ein Kommando in einem Service eines Docker-Compose-Projekts aus.</li>
+<li><code>docker-compose run &lt;service_name&gt; &lt;command&gt;</code>: Führt ein Kommando in einem neuen Container eines Services eines Docker-Compose-Projekts aus.</li>
+<li><code>docker-compose logs -f &lt;service_name&gt;</code>: Zeigt die Logs eines Services in einem Docker-Compose-Projekt an und folgt ihnen.</li>
+<li><code>docker-compose port &lt;service_name&gt; &lt;port&gt;</code>: Zeigt den Host-Port eines Service-Ports in einem Docker-Compose-Projekt an.</li>
+<li><code>docker-compose pause &lt;service_name&gt;</code>: Pausiert einen Service in einem Docker-Compose-Projekt.</li>
+<li><code>docker-compose unpause &lt;service_name&gt;</code>: Setzt die Ausführung eines pausierten Services in einem Docker-Compose-Projekt fort.</li>
+<li><code>docker-compose kill &lt;service_name&gt;</code>: Beendet einen Service in einem Docker-Compose-Projekt gewaltsam.</li>
+<li><code>docker-compose rm &lt;service_name&gt;</code>: Entfernt einen Service in einem Docker-Compose-Projekt.</li>
+<li><code>docker-compose scale &lt;service_name&gt;=&lt;number_of_instances&gt;</code>: Skaliert die Anzahl der Instanzen eines Services in einem Docker-Compose-Projekt.</li>
+<li><code>docker-compose start &lt;service_name&gt;</code>: Startet einen Service in einem Docker-Compose-Projekt.</li>
+<li><code>docker-compose stop &lt;service_name&gt;</code>: Stoppt einen Service in einem Docker-Compose-Projekt.</li>
+<li><code>docker-compose restart &lt;service_name&gt;</code>: Startet einen Service in einem Docker-Compose-Projekt neu.</li>
+<li><code>docker-compose build &lt;service_name&gt;</code>: Baut das Image für einen Service in einem Docker-Compose-Projekt.</li>
+<li><code>docker-compose pull &lt;service_name&gt;</code>: Lädt das Image für einen Service in einem Docker-Compose-Projekt herunter.</li>
+<li><code>docker-compose push &lt;service_name&gt;</code>: Lädt das Image für einen Service in einem Docker-Compose-Projekt auf Docker Hub hoch.</li>
+<li><code>docker-compose exec &lt;service_name&gt; /bin/bash</code>: Startet eine interaktive Shell in einem Service eines Docker-Compose-Projekts.</li>
+</ul>
+<h3 id="docker-images-und-dockerfiles">Docker Images und Dockerfiles</h3>
+<h4 id="docker-images">Docker Images</h4>
+<p>Ein Docker-Image ist eine schreibgeschützte Vorlage, die alles enthält, um einen Container zu starten. Eigene Docker-Images lassen sich mit Dockerfiles erstellen.</p>
+<p>Beispiele für den Aufbau des Namens eines Docker-Images:<br />
+<code>&lt;repository&gt;/&lt;image&gt;:&lt;tag&gt;</code>
+- <code>repository</code>: Name des Docker-Repositories.
+- <code>image</code>: Name des Docker-Images.
+- <code>tag</code>: Version des Docker-Images.</p>
+<p><code>wimdevgroup/minecraft:fabric-1.21.1</code>
+- Der erste Teil (wimdevgroup) ist der Benutzername. 
+- Nach dem / steht der Name des Images. 
+- Der Tag (fabric-1.21.1) gibt die Version des Images an.</p>
+<h4 id="dockerfiles">Dockerfiles</h4>
+<p>Ein Dockerfile ist eine Textdatei, die eine Reihe von Anweisungen enthält, um ein Docker-Image zu erstellen. Hier ist ein einfaches Beispiel für ein Dockerfile:</p>
+<div class="language-Dockerfile highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="c"># Basis-Image mit Java</span>
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">openjdk:24-jdk-slim</span>
+</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="c"># Arbeitsverzeichnis festlegen</span>
+</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/minecraft</span>
+</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="c"># Installieren der benötigten Pakete</span>
+</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">      </span>nano<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">      </span>wget<span class="w"> </span><span class="se">\</span>
+</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">      </span>curl
+</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="c"># Herunterladen der Minecraft-Server-JAR (Fabric)</span>
+</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="k">ADD</span><span class="w"> </span>https://meta.fabricmc.net/v2/versions/loader/1.21.1/0.16.9/1.0.1/server/jar<span class="w"> </span>minecraft-server.jar
+</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="c"># EULA akzeptieren</span>
+</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="k">RUN</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;eula=true&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>eula.txt
+</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="c"># Minecraft-Port freigeben</span>
+</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="k">EXPOSE</span><span class="w"> </span><span class="s">25565</span>
+</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="c"># Speicher festlegen</span>
+</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">MEMORY</span><span class="o">=</span>2G
+</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="c"># Startbefehl für den Server</span>
+</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;sh&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-c&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;java -Xmx${MEMORY} -Xms${MEMORY} -jar minecraft-server.jar nogui&quot;</span><span class="p">]</span>
+</span></code></pre></div>
+<p>Erklärung des Dockerfiles:
+- <code>FROM</code>: Setzt das Basis-Image für das Docker-Image.
+- <code>WORKDIR</code>: Legt das Arbeitsverzeichnis im Container fest.
+- <code>RUN</code>: Führt Befehle im Container aus.
+- <code>ADD</code>: Lädt eine Datei von einer URL herunter und fügt sie zum Container hinzu.
+- <code>EXPOSE</code>: Legt den Port fest, der für den Container freigegeben werden soll.
+- <code>ENV</code>: Setzt eine Umgebungsvariable.
+- <code>CMD</code>: Legt den Standardbefehl fest, der beim Start des Containers ausgeführt wird.</p>
+<h4 id="andere-wichtige-dockerfile-befehle">Andere wichtige Dockerfile-Befehle:</h4>
+<ul>
+<li><code>COPY</code>: Kopiert Dateien und Verzeichnisse in den Container.</li>
+<li><code>ENTRYPOINT</code>: Legt den Befehl fest, der beim Start des Containers ausgeführt wird.</li>
+<li><code>VOLUME</code>: Erstellt ein Volumen im Container.</li>
+<li><code>USER</code>: Setzt den Benutzer, unter dem der Befehl ausgeführt wird.</li>
+<li><code>LABEL</code>: Fügt Metadaten zum Image hinzu.</li>
+<li><code>ARG</code>: Definiert eine Build-Variable.</li>
+<li><code>ONBUILD</code>: Führt Befehle aus, wenn das Image als Basis für ein anderes Image verwendet wird.</li>
+<li><code>STOPSIGNAL</code>: Setzt das Signal, das beim Stoppen des Containers gesendet wird.</li>
+<li><code>HEALTHCHECK</code>: Fügt einen Gesundheitscheck zum Container hinzu.</li>
+<li><code>SHELL</code>: Legt die Standard-Shell für den Container fest.</li>
+<li><code>MAINTAINER</code>: Legt den Autor des Dockerfiles fest.</li>
+</ul>
+<h4 id="docker-image-aus-dockerfile-bauen">Docker-Image aus Dockerfile bauen</h4>
+<p>Um ein Dockerfile als Image zu verwenden, muss es gebaut werden. Hier ist der Befehl, um ein Docker-Image aus einem Dockerfile zu bauen:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>docker<span class="w"> </span>build<span class="w"> </span>-t<span class="w"> </span>wimdevgroup/minecraft:fabric-1.21.1<span class="w"> </span>.
+</span></code></pre></div>
+<p>Dabei definiert <code>-t</code> den Namen und den Tag des Images, und <code>.</code> gibt das Verzeichnis an, in dem sich das Dockerfile befindet.</p>
+<p>Um das Docker Image dann auszuführen, kann folgender Befehl verwendet werden:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>-p<span class="w"> </span><span class="m">25565</span>:25565<span class="w"> </span>-e<span class="w"> </span><span class="nv">MEMORY</span><span class="o">=</span>4G<span class="w"> </span>wimdevgroup/minecraft:fabric-1.21.1
+</span></code></pre></div>
+<p>Das image wird für das System gebaut, auf dem der Befehl ausgeführt wird. Das bedeutet, dass das Image nur auf dem System ausgeführt werden kann, auf dem es gebaut wurde. Wenn man es auf einem MacBook baut ist das Image für ARM geräte gebaut und kann nicht auf einem x86 System ausgeführt werden.</p>
+<p>Um das Image für ein andere Systeme zu bauen, kann man Buildx verwenden. Buildx ist ein Docker CLI Plugin, das es ermöglicht, Multi-Architecture Images zu bauen.</p>
+<p>Um das Docker Image auf Docker Hub hochzuladen, kann folgender Befehl verwendet werden:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>docker<span class="w"> </span>push<span class="w"> </span>wimdevgroup/minecraft:fabric-1.21.1
+</span></code></pre></div>
+<h3 id="docker-buildx">Docker Buildx</h3>
+<p>Docker Buildx ist ein Docker CLI Plugin, das es ermöglicht, Multi-Architecture Images zu bauen.</p>
+<h4 id="installation-von-docker-buildx">Installation von Docker Buildx</h4>
+<p>Das Buildx Plugin wird standartmäßig mit Docker installiert. Um sicherzustellen, dass es installiert ist, kann folgender Befehl verwendet werden:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>docker<span class="w"> </span>buildx<span class="w"> </span>version
+</span></code></pre></div>
+<p>Um das Buildx Plugin zu aktivieren, kann folgender Befehl verwendet werden:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>docker<span class="w"> </span>buildx<span class="w"> </span>create<span class="w"> </span>--use
+</span></code></pre></div>
+<p>Das erstellt einen Builder mit dem Namen <code>default</code> und aktiviert ihn.
+Ein Builder ist eine Instanz von Buildx, die verwendet wird, um Images zu bauen.</p>
+<h4 id="bauen-eines-multi-architecture-images">Bauen eines Multi-Architecture Images</h4>
+<p>Um ein Multi-Architecture Image zu bauen, kann folgender Befehl verwendet werden:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>docker<span class="w"> </span>buildx<span class="w"> </span>build<span class="w"> </span>--builder<span class="w"> </span>default<span class="w"> </span>--tag<span class="w"> </span>wimdevgroup/minecraft:fabric-1.21.1<span class="w"> </span>--platform<span class="w"> </span>linux/amd64,linux/arm64<span class="w"> </span>--push<span class="w">  </span>-f<span class="w"> </span>.Dockerfile<span class="w"> </span>.
+</span></code></pre></div>
+<p>Dabei definiert <code>--builder default</code> den Builder, der verwendet werden soll, <code>--tag</code> den Namen und den Tag.</p>
+<p><code>--platform</code> definiert die Plattformen, für die das Image gebaut werden soll.</p>
+<p><code>--push</code> lädt das Image auf Docker Hub hoch.</p>
+<p><code>-f</code> definiert das Dockerfile, das verwendet werden soll.</p>
+<p><code>.</code> gibt das Verzeichnis an, in dem sich das Dockerfile befindet. Der Punkt gibt an, dass das aktuelle Verzeichnis verwendet werden soll.</p>
+<h3 id="docker-hub">Docker Hub</h3>
+<p>Docker Hub ist ein Cloud-basierter Dienst, der es Entwicklern ermöglicht, Docker-Images zu speichern, zu verwalten und zu teilen. Docker Hub bietet öffentliche und private Registries, in denen Docker-Images gehostet werden können.</p>
+<p>Wenn man einen Docker-Container das erstemal startet, wird das Image von Docker Hub heruntergeladen. Wenn es nicht lokal vorhanden ist.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../projects/docker-compose-helper/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Docker Compose Helper">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Docker Compose Helper
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../docker-compose/" class="md-footer__link md-footer__link--next" aria-label="Next: Docker Compose">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Docker Compose
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2025 WimDevGroup and others
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+      
+    
+    
+    
+      
+      
+    
+    <a href="https://wimwenigerkind.com" target="_blank" rel="noopener me" title="wimwenigerkind.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M433 179.1c0-97.2-63.7-125.7-63.7-125.7-62.5-28.7-228.6-28.4-290.5 0 0 0-63.7 28.5-63.7 125.7 0 115.7-6.6 259.4 105.6 289.1 40.5 10.7 75.3 13 103.3 11.4 50.8-2.8 79.3-18.1 79.3-18.1l-1.7-36.9s-36.3 11.4-77.1 10.1c-40.4-1.4-83-4.4-89.6-54-.6-4.6-.9-9.3-.9-13.9 85.6 20.9 158.7 9.1 178.7 6.7 56.1-6.7 105-41.3 111.2-72.9 9.8-49.8 9-121.5 9-121.5zm-75.1 125.2h-46.6V190.1c0-49.7-64-51.6-64 6.9v62.5H201V197c0-58.5-64-56.6-64-6.9v114.2H90.3c0-122.1-5.2-147.9 18.4-175 25.9-28.9 79.8-30.8 103.8 6.1l11.6 19.5 11.6-19.5c24.1-37.1 78.1-34.8 103.8-6.1 23.7 27.3 18.4 53 18.4 175"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.footer", "content.code.copy", "content.code.select", "content.code.annotate", "navigation.tabs", "search.highlight", "navigation.instant"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>
