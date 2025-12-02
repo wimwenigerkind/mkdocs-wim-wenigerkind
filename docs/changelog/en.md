@@ -7,10 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+- Fixed spelling mistakes
+
 ## [6.1.0] - 2025-12-02
 
 ### Added
-- Add edit and view actions to mkdocs configuration
+- Add edit and view actions to MkDocs configuration
 
 ### Changed
 - Changed logo and favicon URL to GitHub profile picture
@@ -23,7 +26,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [5.0.0] - 2025-09-02
 
 ### Added
-- Moved documentation to github pages
+- Moved documentation to GitHub pages
 
 ## [4.0.1] - 2025-08-05
 

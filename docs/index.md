@@ -7,7 +7,7 @@ Hi, my name is Wim. I’m 16 years old and a passionate developer from Germany. 
 
 ### Projects
 - **[Docker Hub](https://hub.docker.com/u/wimdevgroup)**: My Docker Hub repository with various Docker images.
-- **[GamePanel Comming Soon](#)**: A docker based game server management panel for Minecraft and other games.
+- **[GamePanel Coming Soon](#)**: A docker based game server management panel for Minecraft and other games.
 - **[Docker Compose Helper](/projects/docker-compose-helper/)**: A helper script to run Docker Compose scripts with ease.
 
 ### Contact

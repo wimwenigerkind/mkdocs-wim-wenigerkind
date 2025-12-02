@@ -7,6 +7,9 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 
 ## [Unveröffentlicht]
 
+### Geändert
+- Rechtschreibfehler behoben
+
 ## [6.1.0] - 2025-12-02
 
 ### Added
@@ -29,7 +32,7 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 
 ### Behoben
 - Tippfehler im MySQL Docker Compose Beispiel korrigiert
-- Falsche Portzuordnung im MySQL Docker Compose Beispiel behoben
+- Falsche Port zuordnung im MySQL Docker Compose Beispiel behoben
 
 
 ## [4.0.0] - 2025-07-05

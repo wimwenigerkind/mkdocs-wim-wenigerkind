@@ -6,7 +6,7 @@
 
     sudo apt update && apt upgrade -y
 
-### Install Python and Mkdocs
+### Install Python and MkDocs
 
     sudo apt install python3-pip
     sudo apt install mkdocs
@@ -19,7 +19,7 @@
 
     mkdocs new SITE_NAME
 
-## Configure Mkdocs to use MkDocs-Material
+## Configure MkDocs to use MkDocs-Material
 
     cd SITE_NAME
     nano mkdocs.yml
@@ -31,7 +31,7 @@ theme:
     name: material
 ````
 
-## Start Mkdocs
+## Start MkDocs
 
     mkdocs serve
 
@@ -41,4 +41,4 @@ Start with individual IP
 
 Access the Site via IP and port 8000
 
-## Mkdocs-Material
+## MkDocs-Material
