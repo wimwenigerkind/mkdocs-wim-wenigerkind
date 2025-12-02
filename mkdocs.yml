@@ -2,8 +2,8 @@ site_name: Docs
 site_url: https://docs.wimwenigerkind.com/
 theme:
   name: material
-  logo: https://images.wimwenigerkind.com/wimwenigerkind-transparent-icon.png
-  favicon: https://images.wimwenigerkind.com/wimwenigerkind-transparent-icon.png
+  logo: https://avatars.githubusercontent.com/u/159561025?v=4&s=400
+  favicon: https://avatars.githubusercontent.com/u/159561025?v=4&s=400
   custom_dir: docs/overrides
   features:
     - navigation.footer
