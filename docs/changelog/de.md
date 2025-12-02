@@ -7,6 +7,8 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 
 ## [Unveröffentlicht]
 
+## [6.1.1] - 2025-12-02
+
 ### Geändert
 - Rechtschreibfehler behoben
 
