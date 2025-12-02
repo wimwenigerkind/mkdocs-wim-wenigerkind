@@ -7,8 +7,13 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 
 ## [Unveröffentlicht]
 
+## [6.1.0] - 2025-12-02
+
 ### Added
 - Bearbeiten und Ansicht-Aktionen zur MkDocs-Konfiguration hinzugefügt
+
+### Geändert
+- Logo- und Favicon-URL auf das GitHub-Profilbild geändert
 
 ## [6.0.0] - 2025-09-02
 
