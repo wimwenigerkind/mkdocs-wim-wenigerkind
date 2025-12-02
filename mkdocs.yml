@@ -36,7 +36,7 @@ repo_url: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind
 repo_name: wimwenigerkind/mkdocs-wim-wenigerkind
 edit_uri: edit/main/docs/
 extra_css:
-  - assets/stylesheets/extra.css
+  - stylesheets/extra.css
 extra:
   version:
     provider: mike
