@@ -11,6 +11,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add JetBrains Mono font
 - update CSS path
 - Add direnv configuration
+- Add changelog reference links
 
 ### Changed
 - Simplify About Me section
@@ -132,18 +133,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Initial release of the documentation
 - First documentation files
 
-## Versioning
-
-This project uses [Semantic Versioning](https://semver.org/spec/v2.0.0.html):
-
-### Major Version (X.0.0)
-- Structure changes in the documentation
-- Breaking changes in organization
-
-### Minor Version (0.X.0)
-- New documentation sections
-- New features or content
-
-### Patch Version (0.0.X)
-- Bug fixes in the documentation
-- Small improvements and corrections
+[unreleased]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v6.1.1...HEAD
+[6.1.1]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v6.1.0...v6.1.1
+[6.1.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v6.0.0...v6.1.0
+[6.0.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v5.0.0...v6.0.0
+[5.0.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v4.0.1...v5.0.0
+[4.0.1]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v4.0.0...v4.0.1
+[4.0.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v3.3.0...v4.0.0
+[3.3.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v3.2.1...v3.3.0
+[3.2.1]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v3.2.0...v3.2.1
+[3.2.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v3.1.0...v3.2.0
+[3.1.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v3.0.0...v3.1.0
+[3.0.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v2.0.0...v3.0.0
+[2.0.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v1.4.0...v2.0.0
+[1.4.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v1.3.0...v1.4.0
+[1.3.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v1.2.1...v1.3.0
+[1.2.1]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v1.2.0...v1.2.1
+[1.2.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v1.1.0...v1.2.0
+[1.1.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v1.0.0...v1.1.0

@@ -133,18 +133,21 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 - Erste Veröffentlichung der Dokumentation
 - Erste Dokumentationsdateien hinzugefügt
 
-## Versionierung
-
-Dieses Projekt verwendet [Semantische Versionierung](https://semver.org/lang/de/):
-
-### Major Version (X.0.0)
-- Strukturänderungen in der Dokumentation
-- Breaking Changes in der Organisation
-
-### Minor Version (0.X.0)
-- Neue Dokumentationsabschnitte
-- Neue Features oder Inhalte
-
-### Patch Version (0.0.X)
-- Fehlerbehebungen in der Dokumentation
-- Kleine Verbesserungen und Korrekturen
+[unreleased]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v6.1.1...HEAD
+[6.1.1]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v6.1.0...v6.1.1
+[6.1.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v6.0.0...v6.1.0
+[6.0.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v5.0.0...v6.0.0
+[5.0.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v4.0.1...v5.0.0
+[4.0.1]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v4.0.0...v4.0.1
+[4.0.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v3.3.0...v4.0.0
+[3.3.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v3.2.1...v3.3.0
+[3.2.1]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v3.2.0...v3.2.1
+[3.2.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v3.1.0...v3.2.0
+[3.1.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v3.0.0...v3.1.0
+[3.0.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v2.0.0...v3.0.0
+[2.0.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v1.4.0...v2.0.0
+[1.4.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v1.3.0...v1.4.0
+[1.3.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v1.2.1...v1.3.0
+[1.2.1]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v1.2.0...v1.2.1
+[1.2.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v1.1.0...v1.2.0
+[1.1.0]: https://github.com/wimwenigerkind/mkdocs-wim-wenigerkind/compare/v1.0.0...v1.1.0
