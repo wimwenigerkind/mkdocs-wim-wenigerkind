@@ -7,6 +7,18 @@ und dieses Projekt folgt der [Semantischen Versionierung](https://semver.org/lan
 
 ## [Unveröffentlicht]
 
+### Hinzugefügt
+- JetBrains Mono Schriftart hinzugefügt
+- CSS-Pfad aktualisiert
+- Direnv-Konfiguration hinzugefügt
+
+### Geändert
+- About Me Sektion vereinfacht
+- Kontakt-E-Mail aktualisiert
+
+### Entfernt
+- Veraltete Dokumentationen entfernt (Bitbucket Pipelines, Docker allgemeine Docs, MkDocs, OpenSSH Server, Pi-hole, Proxmox)
+
 ## [6.1.1] - 2025-12-02
 
 ### Geändert

@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+- Add JetBrains Mono font
+- update CSS path
+- Add direnv configuration
+
+### Changed
+- Simplify About Me section
+- Update contact email
+
+### Removed
+- Remove outdated documentations (Bitbucket Pipelines, Docker general docs, MkDocs, OpenSSH Server, Pi-hole, Proxmox)
+
 ## [6.1.1] - 2025-12-02
 
 ### Changed
