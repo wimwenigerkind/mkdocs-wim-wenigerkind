@@ -9,7 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - Add JetBrains Mono font
-- update CSS path
+- Update CSS path
 - Add direnv configuration
 - Add changelog reference links
 
