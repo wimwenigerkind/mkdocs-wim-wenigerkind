@@ -101,7 +101,7 @@ nav:
           - Nextcloud: docker/nextcloud.md
           - Wordpress: docker/wordpress.md
   - Other Documentations:
-      - Git: git.md
+      - Git: other/git.md
   - Docker Hub:
       - Docker Hub: docker-hub/docker-hub.md
       - Symfony 7 Pipeline: docker-hub/symfony-7-pipeline.md
