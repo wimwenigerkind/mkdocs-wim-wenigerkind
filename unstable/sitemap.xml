@@ -5,14 +5,6 @@
          <lastmod>1980-01-01</lastmod>
     </url>
     <url>
-         <loc>https://docs.wimwenigerkind.com/unstable/git/</loc>
-         <lastmod>1980-01-01</lastmod>
-    </url>
-    <url>
-         <loc>https://docs.wimwenigerkind.com/unstable/under/</loc>
-         <lastmod>1980-01-01</lastmod>
-    </url>
-    <url>
          <loc>https://docs.wimwenigerkind.com/unstable/blog/</loc>
          <lastmod>1980-01-01</lastmod>
     </url>
@@ -110,6 +102,10 @@
     </url>
     <url>
          <loc>https://docs.wimwenigerkind.com/unstable/homebrew/wswcli/patchvendor/</loc>
+         <lastmod>1980-01-01</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.wimwenigerkind.com/unstable/other/git/</loc>
          <lastmod>1980-01-01</lastmod>
     </url>
     <url>
