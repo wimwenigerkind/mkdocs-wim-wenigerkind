@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'JetBrains Mono';
+    src: url('https://wimwenigerkind.com/fonts/JetBrainsMono-2.304/fonts/webfonts/JetBrainsMono-Regular.woff2') format('woff2'),
+    url('https://wimwenigerkind.com/fonts/JetBrainsMono-2.304/fonts/ttf/JetBrainsMono-Regular.ttf') format('truetype');
+}
+
+body {
+    font-family: 'JetBrains Mono', -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif;
+}
